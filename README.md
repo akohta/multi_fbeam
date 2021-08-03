@@ -1,4 +1,4 @@
-# multi_fb
+# multi_fbeam
 This is the electromagnetic field analysis program for focused beams.
 This program can analyze plane wave, focused plane wave, focused radial-azimuthal polarization beam.
 In additon, spiral phase modulated beam ( like a Laguerre Gaussian beam ), and Bessel beam can be analyzed. 
@@ -81,5 +81,75 @@ Z-axis is selected as optic axis.
   <img src="https://latex.codecogs.com/gif.latex?H_0=\frac{E_0}{Z}">.  
 
 - Bessel beam  
+
+  <img src="https://latex.codecogs.com/gif.latex?\mathbf{E}(x,y,z)=E_0\int_0^{2\pi}\mathbf{e}(\theta_d,\phi)\exp\left(ik(x\sin\theta_d\cos\phi+y\sin\theta_d\sin\phi+z\cos\theta_d)\right)\sin\theta_d\,d\phi">,  
+  <img src="https://latex.codecogs.com/gif.latex?e_x(\theta_d,\phi)=p_{fx}(\sin^2\phi+\cos\theta_d\cos^2\phi)+p_{fy}\sin\phi\cos\phi(\cos\theta_d-1)">,  
+  <img src="https://latex.codecogs.com/gif.latex?e_y(\theta_d,\phi)=p_{fx}\sin\phi\cos\phi(\cos\theta_d-1)+p_{fy}(\cos\theta_d\sin^2\phi+\cos^2\phi)">,  
+  <img src="https://latex.codecogs.com/gif.latex?e_z(\theta_d,\phi)=-p_{fx}\sin\theta_d\cos\phi-p_{fy}\sin\theta_d\sin\phi">,  
+  <img src="https://latex.codecogs.com/gif.latex?E_0=\sqrt{2ZS}">.  
+  <img src="https://latex.codecogs.com/gif.latex?\mathbf{H}(x,y,z)=H_0\int_0^{2\pi}\mathbf{h}(\theta_d,\phi)\exp\left(ik(x\sin\theta_d\cos\phi+y\sin\theta_d\sin\phi+z\cos\theta_d)\right)\sin\theta_d\,d\phi">,  
+  <img src="https://latex.codecogs.com/gif.latex?h_x(\theta_d,\phi)=-p_{fy}(\sin^2\phi+\cos\theta_d\cos^2\phi)-p_{fx}\sin\phi\cos\phi(\cos\theta_d-1)">,  
+  <img src="https://latex.codecogs.com/gif.latex?h_y(\theta_d,\phi)=-p_{fy}\sin\phi\cos\phi(\cos\theta_d-1)+p_{fx}(\cos\theta_d\sin^2\phi+\cos^2\phi)">,  
+  <img src="https://latex.codecogs.com/gif.latex?h_z(\theta_d,\phi)=p_{fy}\sin\theta_d\cos\phi-p_{fx}\sin\theta_d\sin\phi">,  
+  <img src="https://latex.codecogs.com/gif.latex?H_0=\frac{E_0}{Z}">.    
+  <img src="https://latex.codecogs.com/gif.latex?\theta_d"> is a deflection angle, formed by wave number vector and z-axis. For axicon prism  
+  <img src="https://latex.codecogs.com/gif.latex?\theta_d=\sin^{-1}\left(\frac{n_p}{n_s}\sin\theta_p\right)-\theta_p">,  
+  <img src="https://latex.codecogs.com/gif.latex?\theta_p"> is a prism angle,
+  <img src="https://latex.codecogs.com/gif.latex?n_p"> is a refractive index of prism,
+  <img src="https://latex.codecogs.com/gif.latex?n_s"> is a refractive index of surroundings.
+  
+- Bessel beam with spiral phase modulation  
+
+  <img src="https://latex.codecogs.com/gif.latex?\mathbf{E}(x,y,z)=E_0\int_0^{2\pi}\mathbf{e}(\theta_d,\phi)\exp\left(ik(x\sin\theta_d\cos\phi+y\sin\theta_d\sin\phi+z\cos\theta_d)+im\phi\right)\sin\theta_d\,d\phi">,  
+  <img src="https://latex.codecogs.com/gif.latex?\mathbf{H}(x,y,z)=H_0\int_0^{2\pi}\mathbf{h}(\theta_d,\phi)\exp\left(ik(x\sin\theta_d\cos\phi+y\sin\theta_d\sin\phi+z\cos\theta_d)+im\phi\right)\sin\theta_d\,d\phi">.  
+  <img src="https://latex.codecogs.com/gif.latex?m"> is a mode number, must be integer ( m=0 is focused plane wave ). Others are the same as bessel beam.
+  
+  
+## Formulae for numerical verification  
+
+- Focused plane wave  
+
+  <img src="https://latex.codecogs.com/gif.latex?E_x(0,0,0)=E_0e_{px}\frac{\pi}{6}\left(2\sin^2\theta_M\cos\theta_M+3\sin^2\theta_M-2\cos\theta_M+2\right)">,  
+  <img src="https://latex.codecogs.com/gif.latex?E_y(0,0,0)=E_0e_{py}\frac{\pi}{6}\left(2\sin^2\theta_M\cos\theta_M+3\sin^2\theta_M-2\cos\theta_M+2\right)">,  
+  <img src="https://latex.codecogs.com/gif.latex?E_z(0,0,0)=0">,  
+  <img src="https://latex.codecogs.com/gif.latex?\sin\theta_M=\frac{\mathrm{NA}}{n}">.
+  
+  <img src="https://latex.codecogs.com/gif.latex?E_x(0,0,z)=E_0e_{px}\frac{\pi}{k^3z^3}\left[\exp(ikz\cos\theta_M)\left\{ik^2z^2\cos\theta_M(\cos\theta_M+1)-kz(2\cos\theta_M+1)-2i\right\}\right.">    
+  <img src="https://latex.codecogs.com/gif.latex?\left.+\exp(ikz)(-2ik^2z^2+2kz+2i)\right]">,  
+  <img src="https://latex.codecogs.com/gif.latex?E_y(0,0,z)=E_0e_{py}\frac{\pi}{k^3z^3}\left[\exp(ikz\cos\theta_M)\left\{ik^2z^2\cos\theta_M(\cos\theta_M+1)-kz(2\cos\theta_M+1)-2i\right\}\right.">    
+  <img src="https://latex.codecogs.com/gif.latex?\left.+\exp(ikz)(-2ik^2z^2+2kz+2i)\right]">,  
+  
+  <img src="https://latex.codecogs.com/gif.latex?E_z(0,0,z)=0">.  
+
+
+- Focused plane wave with spiral phase modulation  
+
+  <img src="https://latex.codecogs.com/gif.latex?E_x(0,0,0)=\begin{cases}E_0\left(2e_{px}+ime_{py}\right)\frac{\pi}{24}\left(2\sin^2\theta_M\cos\theta_M-3\sin^2\theta_M-2\cos\theta_M+2\right),&|m|=2\\0,&|m|\neq2,m\neq0\end{cases}">,  
+  <img src="https://latex.codecogs.com/gif.latex?E_y(0,0,0)=\begin{cases}E_0\left(ime_{px}-2e_{py}\right)\frac{\pi}{24}\left(2\sin^2\theta_M\cos\theta_M-3\sin^2\theta_M-2\cos\theta_M+2\right),&|m|=2\\0,&|m|\neq2,m\neq0\end{cases}">,  
+  <img src="https://latex.codecogs.com/gif.latex?E_z(0,0,0)=\begin{cases}-E_0(e_{px}+ime_{py})\frac{\pi}{3}\sin^3\theta_M,&|m|=1\\0,&|m|\neq1\end{cases}">.  
+  
+  
+- Focused radial-azimuthal polarization beam  
+
+  <img src="https://latex.codecogs.com/gif.latex?E_x(0,0,0)=0">,  
+  <img src="https://latex.codecogs.com/gif.latex?E_y(0,0,0)=0">,  
+  <img src="https://latex.codecogs.com/gif.latex?E_z(0,0,0)=-E_0e_{vr}\frac{2\pi}{3}\sin^3\theta_M">.  
+
+
+- Bessel beam  
+
+  <img src="https://latex.codecogs.com/gif.latex?E_x(0,0,z)=E_0p_{fx}\pi\sin\theta_d(\cos\theta_d+1)\exp(ikz\cos\theta_d)">,  
+  <img src="https://latex.codecogs.com/gif.latex?E_y(0,0,z)=E_0p_{fy}\pi\sin\theta_d(\cos\theta_d+1)\exp(ikz\cos\theta_d)">,  
+  <img src="https://latex.codecogs.com/gif.latex?E_z(0,0,z)=0">.  
+  
+  
+- Bessel beam with spiral phase modulation   
+
+  <img src="https://latex.codecogs.com/gif.latex?E_x(0,0,z)=\begin{cases}E_0(2p_{fx}+imp_{fy})\frac{\pi}{4}\sin\theta_d(\cos\theta_d-1)\exp(ikz\cos\theta_d),&|m|=2\\0,&|m|\neq2,m\neq0\end{cases}">,  
+  <img src="https://latex.codecogs.com/gif.latex?E_y(0,0,z)=\begin{cases}E_0(imp_{fx}-2p_{fy})\frac{\pi}{4}\sin\theta_d(\cos\theta_d-1)\exp(ikz\cos\theta_d),&|m|=2\\0,&|m|\neq2,m\neq0\end{cases}">,  
+  <img src="https://latex.codecogs.com/gif.latex?E_z(0,0,z)=\begin{cases}-E_0(p_{fx}+imp_{fy})\pi\sin^2\theta_d\exp(ikz\cos\theta_d),&|m|=1\\0,&|m|\neq1,m\neq0\end{cases}">.  
+  
+  
+## Usage of example code  
 
   
