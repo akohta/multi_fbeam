@@ -103,6 +103,14 @@ Z-axis is selected as optic axis.
   <img src="https://latex.codecogs.com/gif.latex?\mathbf{E}(x,y,z)=E_0\int_0^{2\pi}\mathbf{e}(\theta_d,\phi)\exp\left(ik(x\sin\theta_d\cos\phi+y\sin\theta_d\sin\phi+z\cos\theta_d)+im\phi\right)\sin\theta_d\,d\phi">,  
   <img src="https://latex.codecogs.com/gif.latex?\mathbf{H}(x,y,z)=H_0\int_0^{2\pi}\mathbf{h}(\theta_d,\phi)\exp\left(ik(x\sin\theta_d\cos\phi+y\sin\theta_d\sin\phi+z\cos\theta_d)+im\phi\right)\sin\theta_d\,d\phi">.  
   <img src="https://latex.codecogs.com/gif.latex?m"> is a mode number, must be integer ( m=0 is focused plane wave ). Others are the same as bessel beam.
+
+
+- Three-dimensional rotation matrix for rotation of optic axis
+
+  <img src="https://latex.codecogs.com/gif.latex?R=\begin{bmatrix}\cos\theta\cos\phi^2+\sin^2\phi&\sin\phi\cos\phi(\cos\theta-1)&\sin\theta\cos\phi\\\sin\phi\cos\phi(\cos\theta-1)&\cos\theta\sin^2\phi+\cos^2\phi&\sin\theta\sin\phi\\-\sin\theta\cos\phi&-\sin\theta\sin\phi&\cos\theta\end{bmatrix}">.  
+  <img src="https://latex.codecogs.com/gif.latex?\theta"> is a rotation angle. 
+  <img src="https://latex.codecogs.com/gif.latex?\phi"> is a angle on x-y plane, it shows rotation plane parallel to z-axis.  
+  <img src="https://latex.codecogs.com/gif.latex?\phi=0"> means rotation arround y-axis. This rotation matrix can not rotate arround z-axis.
   
   
 ## Formulae for numerical verification  
