@@ -4,7 +4,7 @@ This program can analyze plane wave, focused plane wave, focused radial-azimutha
 In additon, spiral phase modulated beam ( like a Laguerre Gaussian beam ), and Bessel beam can be analyzed. 
 This program also supports superposition of these beams. The analysis method used here based on Fourier optics.
 
-## Formulae
+## Formulae for electromagnetic field
 Electromagnetic wave is assumed monochromatic wave. 
 The surroundings is assumed nonmagnetic.  
 The elementary formula is <img src="https://latex.codecogs.com/gif.latex?u(\mathbf{r},t)=u(\mathbf{r})\exp(-i{\omega}t)">.    
