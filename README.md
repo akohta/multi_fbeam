@@ -75,8 +75,8 @@ Z-axis is selected as optic axis.
   <img src="https://latex.codecogs.com/gif.latex?\mathbf{p}_v=\left(\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}}\right)"> for combined-polarization.  
   
   <img src="https://latex.codecogs.com/gif.latex?\mathbf{H}(x,y,z)=H_0\int\!\!\!\int_{\Omega}\mathbf{h}(\theta,\phi)\exp\left(ik(x\sin\theta\cos\phi+y\sin\theta\sin\phi+z\cos\theta)\right)\sin\theta\,d(\sin\theta)d\phi">,  
-  <img src="https://latex.codecogs.com/gif.latex?h_x(\theta,\phi)=-e_{va}\cos\theta\cos\phi-e_{vr}\sin\phi">,  
-  <img src="https://latex.codecogs.com/gif.latex?h_y(\theta,\phi)=-e_{va}\cos\theta\sin\phi+e_{vr}\cos\phi">,  
+  <img src="https://latex.codecogs.com/gif.latex?h_x(\theta,\phi)=-e_{va}\cos\theta\cos\phi-e_{vr}\sin\phi">,   
+  <img src="https://latex.codecogs.com/gif.latex?h_y(\theta,\phi)=-e_{va}\cos\theta\sin\phi+e_{vr}\cos\phi">,   
   <img src="https://latex.codecogs.com/gif.latex?h_z(\theta,\phi)=e_{va}\sin\theta">,  
   <img src="https://latex.codecogs.com/gif.latex?H_0=\frac{E_0}{Z}">.  
 
@@ -128,6 +128,21 @@ Z-axis is selected as optic axis.
   <img src="https://latex.codecogs.com/gif.latex?\left.+\exp(ikz)(-2ik^2z^2+2kz+2i)\right]">,  
   
   <img src="https://latex.codecogs.com/gif.latex?E_z(0,0,z)=0">.  
+  
+  From Fraunhofer diffraction 
+  (<img src="https://latex.codecogs.com/gif.latex?\mathrm{NA}\simeq0">)  
+  <img src="https://latex.codecogs.com/gif.latex?P_u=c\int\!\!\!\int_S\frac{1}{4}\left(\epsilon|\mathbf{E}(x,y,0)|^2+\mu|\mathbf{H}(x,y,0)|^2\right)\,dxdy">,  
+  <img src="https://latex.codecogs.com/gif.latex?P_s=\int_S\frac{1}{2}\Re\left(\mathbf{E}(x,y,0)\times\mathbf{H}^*(x,y,0)\right)\cdot\mathbf{n}_s\,dxdy">,  
+  <img src="https://latex.codecogs.com/gif.latex?S=\left\{(x,y):x^2+y^2\le\left(\frac{d}{2}\right)^2\right\}">,  
+  <img src="https://latex.codecogs.com/gif.latex?d=1.220\frac{\lambda_0}{\mathrm{NA}}">,  
+  <img src="https://latex.codecogs.com/gif.latex?\frac{P_u}{P}\simeq\frac{P_s}{P}\simeq0.8378">.  
+  <img src="https://latex.codecogs.com/gif.latex?\epsilon"> is a permittivity,
+  <img src="https://latex.codecogs.com/gif.latex?\mu"> is a permeability,
+  <img src="https://latex.codecogs.com/gif.latex?c"> is a speed of light, 
+  <img src="https://latex.codecogs.com/gif.latex?\mathbf{n}_s=(0,0,1)">, 
+  <img src="https://latex.codecogs.com/gif.latex?d"> is a diameter of beam spot ( diameter of airy disk ), 
+  <img src="https://latex.codecogs.com/gif.latex?\lambda_0"> is a wavelength in vacuum.  
+  
 
 
 - Focused plane wave with spiral phase modulation  
