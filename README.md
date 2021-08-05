@@ -147,9 +147,9 @@ Z-axis is selected as optic axis.
   From Fraunhofer diffraction 
   (<img src="https://latex.codecogs.com/gif.latex?\mathrm{NA}\simeq0">)  
   <img src="https://latex.codecogs.com/gif.latex?P_u=c\int\!\!\!\int_S\frac{1}{4}\left(\epsilon|\mathbf{E}(x,y,0)|^2+\mu|\mathbf{H}(x,y,0)|^2\right)\,dxdy">,  
-  <img src="https://latex.codecogs.com/gif.latex?P_s=\int_S\frac{1}{2}\Re\left(\mathbf{E}(x,y,0)\times\mathbf{H}^*(x,y,0)\right)\cdot\mathbf{n}_s\,dxdy">,  
+  <img src="https://latex.codecogs.com/gif.latex?P_s=\int\!\!\!\int_S\frac{1}{2}\Re\left(\mathbf{E}(x,y,0)\times\mathbf{H}^*(x,y,0)\right)\cdot\mathbf{n}_s\,dxdy">,  
   <img src="https://latex.codecogs.com/gif.latex?S=\left\{(x,y):x^2+y^2\le\left(\frac{d}{2}\right)^2\right\}">,  
-  <img src="https://latex.codecogs.com/gif.latex?d=1.220\frac{\lambda_0}{\mathrm{NA}}">,  
+  <img src="https://latex.codecogs.com/gif.latex?d\simeq1.220\frac{\lambda_0}{\mathrm{NA}}">,  
   <img src="https://latex.codecogs.com/gif.latex?\frac{P_u}{P}\simeq\frac{P_s}{P}\simeq0.8378">.  
   <img src="https://latex.codecogs.com/gif.latex?\epsilon"> is a permittivity,
   <img src="https://latex.codecogs.com/gif.latex?\mu"> is a permeability,
