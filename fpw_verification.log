@@ -1,0 +1,51 @@
+----- verification 1 ------
+ "fpw_verification1.txt" No.00 -- focused plane wave --
+wave length of incident beam in vacuum   [m]:       1.064e-06
+refractive index of surrounding             :            1.33
+numerical aperture                          :             1.2
+incident beam power                      [W]:           0.001
+x-component of polarization coefficient     :0.70711+      0i
+y-component of polarization coefficient     :      0+0.70711i
+x-component of translation vector        [m]:               0
+y-component of translation vector        [m]:               0
+z-component of translation vector        [m]:               0
+rotation parameter theta               [rad]:               0
+rotation parameter phi                 [rad]:               0
+gauss-legendre integration sampling number  :              64
+
+Electric field at origin
+Ex= 9.32662466429392e+05 +0.00000000000000e+00 I
+Ey= 0.00000000000000e+00 +9.32662466429392e+05 I
+Ez=-2.83275051841671e-11 -6.27460826568017e-13 I
+Analytical result
+Ex= 9.32662466429391e+05 +0.00000000000000e+00 I
+Ey= 0.00000000000000e+00 +9.32662466429391e+05 I
+Ez= 0.00000000000000e+00 +0.00000000000000e+00 I
+
+Electric field at (0,0,1.2e-06)
+Ex= 3.81290663041995e+04 +2.46256637929945e+05 I
+Ey=-2.46256637929945e+05 +3.81290663041995e+04 I
+Ez=-6.85596123142473e-12 -2.05982089322115e-12 I
+Analytical result
+Ex= 3.81290663041997e+04 +2.46256637929945e+05 I
+Ey=-2.46256637929945e+05 +3.81290663041997e+04 I
+Ez= 0.00000000000000e+00 +0.00000000000000e+00 I
+
+----- verification 2 ------
+ "fpw_verification2.txt" No.00 -- focused plane wave --
+wave length of incident beam in vacuum   [m]:       1.064e-06
+refractive index of surrounding             :            1.33
+numerical aperture                          :           0.001
+incident beam power                      [W]:           0.001
+x-component of polarization coefficient     :0.70711+      0i
+y-component of polarization coefficient     :      0+0.70711i
+x-component of translation vector        [m]:               0
+y-component of translation vector        [m]:               0
+z-component of translation vector        [m]:               0
+rotation parameter theta               [rad]:               0
+rotation parameter phi                 [rad]:               0
+gauss-legendre integration sampling number  :              64
+
+P_airy/P_total = 0.8378 ( Fraunhofer diffraction theory )
+Pu = 0.00083778486917331[W], Pu/P = 0.837785
+Ps = 0.00083778477369452[W], Ps/P = 0.837785

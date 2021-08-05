@@ -1,0 +1,29 @@
+ "fpw.txt" No.00 -- focused plane wave --
+wave length of incident beam in vacuum   [m]:       1.064e-06
+refractive index of surrounding             :            1.33
+numerical aperture                          :             1.2
+incident beam power                      [W]:           0.001
+x-component of polarization coefficient     :      1+      0i
+y-component of polarization coefficient     :      0+      0i
+x-component of translation vector        [m]:               0
+y-component of translation vector        [m]:               0
+z-component of translation vector        [m]:               0
+rotation parameter theta               [rad]:               0
+rotation parameter phi                 [rad]:               0
+gauss-legendre integration sampling number  :              64
+
+Returned value r=( 2.5e-06,-3e-06, 1e-05)
+Ex= 1.93263335083614e+04 +3.51389694109099e+04 I
+Ey= 8.71920441223253e+02 +1.31727862738714e+03 I
+Ez=-5.78572810287321e+03 -7.42429706451866e+03 I
+Hx= 3.07820779318467e+00 +4.65049005036511e+00 I
+Hy= 6.71005653849938e+01 +1.22348626569702e+02 I
+Hz= 2.45109610833656e+01 +3.14526803168286e+01 I
+
+Real electromagnetic field at t=1e-08 [sec]
+Ex= 2.93193919861993e+04
+Ey= 1.06292644130356e+03
+Ez=-5.77680329150469e+03
+Hx= 3.75253096556881e+00
+Hy= 1.02132576467084e+02
+Hz= 2.44731515457862e+01
