@@ -14,7 +14,9 @@ This program also supports superposition of these beams. The analysis method use
 5. type './fpw_verification.out.  
     This executable ( source file is fpw_verification.c ) show verification results about focused plane wave. This is for a verification, not to demonstrate the use.
     
-Please see mfb_src/multi_fbeam.h for detail of functions. The samples of beam are in beam_sample folder, please copy and use.
+Please see mfb_src/multi_fbeam.h for detail of functions. The samples of beam are in beam_sample folder, please copy and use.  
+I_example2.pdf is visualization result of example2 outputs ( created by Gnuplot script file 'gscript.plt' ).
+
 
 
 ## Formulae for electromagnetic field
