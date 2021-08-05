@@ -4,6 +4,19 @@ This program can analyze plane wave, focused plane wave, focused radial-azimutha
 In additon, spiral phase modulated beam ( like a Laguerre Gaussian beam ), and Bessel beam can be analyzed. 
 This program also supports superposition of these beams. The analysis method used here based on Fourier optics.
 
+## Usage of example code  
+
+1. type 'make' command to compile
+2. type './example1.out.  
+    This executable ( source file is example1.c ) calculates electromagnetic field. This is the simplest example to use this code. The beam datafile 'fpw.txt' is used.
+4. type './example2.out.   
+    This executable ( source file is example2.c ) calculate electric field intensity distributions and output to a text files.
+5. type './fpw_verification.out.  
+    This executable ( source file is fpw_verification.c ) show verification results about focused plane wave. This is for a verification, not to demonstrate the use.
+    
+Please see mfb_src/multi_fbeam.h for detail of functions. The samples of beam are in beam_sample folder, please copy and use.
+
+
 ## Formulae for electromagnetic field
 Electromagnetic wave is assumed monochromatic wave. 
 The surroundings is assumed nonmagnetic.  
@@ -173,6 +186,6 @@ Z-axis is selected as optic axis.
   <img src="https://latex.codecogs.com/gif.latex?E_z(0,0,z)=\begin{cases}-E_0(p_{fx}+imp_{fy})\pi\sin^2\theta_d\exp(ikz\cos\theta_d),&|m|=1\\0,&|m|\neq1,m\neq0\end{cases}">.  
   
   
-## Usage of example code  
+
 
   
