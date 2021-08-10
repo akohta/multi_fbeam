@@ -8,14 +8,14 @@ This program also supports superposition of these beams. The analysis method use
 
 1. type 'make' command to compile
 2. type './example1.out.  
-    This executable ( source file is example1.c ) calculates electromagnetic field. This is the simplest example to use this code. The beam datafile 'fpw.txt' is used.
+    This executable ( source file is example1.c ) calculates electromagnetic field. This is the simplest example using this code. The beam datafile 'fpw.txt' is used.
 4. type './example2.out.   
     This executable ( source file is example2.c ) calculate electric field intensity distributions and output to a text files.
 5. type './fpw_verification.out.  
     This executable ( source file is fpw_verification.c ) show verification results about focused plane wave. This is for a verification, not to demonstrate the use.
     
 Please see mfb_src/multi_fbeam.h for detail of functions. The samples of beam are in beam_sample folder, please copy and use.  
-I_example2.pdf is visualization result of example2 outputs ( created by Gnuplot script file 'gscript.plt' ).
+I_example2.pdf is the visualization result of example2 outputs ( created by Gnuplot script file 'gscript.plt' ).
 
 
 
