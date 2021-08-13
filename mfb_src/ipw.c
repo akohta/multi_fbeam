@@ -12,6 +12,26 @@ void calc_ipw_EH(double complex *e,double complex *h,double *x,Ipw *ipw)
   h[0]=ipw->data.hx*Ee*ipw->data.E0;  h[1]=ipw->data.hy*Ee*ipw->data.E0;  h[2]=ipw->data.hz*Ee*ipw->data.E0;
 }
 
+void calc_ipw_EH_dv(double complex *e,double complex *h,double complex *dedv,double complex *dhdv,double *x,double *v,Ipw *ipw)
+{
+	double xc=x[0]-ipw->fx;
+	double yc=x[1]-ipw->fy;
+	double zc=x[2]-ipw->fz;
+	double te=ipw->data.ki*(xc*ipw->data.sin_t*ipw->data.cos_p+yc*ipw->data.sin_t*ipw->data.sin_p+zc*ipw->data.cos_t);
+	double complex Ee=(cos(te)+I*sin(te));
+	double complex gcf=I*ipw->data.ki*(ipw->data.sin_t*ipw->data.cos_p*v[0]+ipw->data.sin_t*ipw->data.sin_p*v[1]+ipw->data.cos_t*v[2]);
+
+	e[0]=ipw->data.ex*Ee*ipw->data.E0;	e[1]=ipw->data.ey*Ee*ipw->data.E0;	e[2]=ipw->data.ez*Ee*ipw->data.E0;
+	h[0]=ipw->data.hx*Ee*ipw->data.E0;	h[1]=ipw->data.hy*Ee*ipw->data.E0;	h[2]=ipw->data.hz*Ee*ipw->data.E0;
+
+	dedv[0]=ipw->data.ex*Ee*ipw->data.E0*gcf;
+	dedv[1]=ipw->data.ey*Ee*ipw->data.E0*gcf;
+	dedv[2]=ipw->data.ez*Ee*ipw->data.E0*gcf;
+	dhdv[0]=ipw->data.hx*Ee*ipw->data.E0*gcf;
+	dhdv[1]=ipw->data.hy*Ee*ipw->data.E0*gcf;
+	dhdv[2]=ipw->data.hz*Ee*ipw->data.E0*gcf;
+}
+
 void read_data_ipw(char *rfile,Ipw *ipw)
 {
   FILE *fp;
@@ -79,3 +99,5 @@ void setup_ipw(Ipw *ipw)
   ipw->data.hy=hx*(sin_p*cos_p*cos_t-sin_p*cos_p)+hy*(sin_p*sin_p*cos_t+cos_p*cos_p);
   ipw->data.hz=-(hx*cos_p+hy*sin_p)*sin_t;
 }
+
+
