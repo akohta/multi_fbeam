@@ -35,5 +35,8 @@ void print_data_ipw(Ipw *ipw);
 void setup_ipw(Ipw *ipw);
 
 void calc_ipw_EH(double complex *e,double complex *h,double *x,Ipw *ipw);
+void calc_ipw_EH_dv(double complex *e,double complex *h,double complex *dedv,double complex *dhdv,double *x,double *v,Ipw *ipw);
+// directional devirative ( define : df/dv=df/dx v_x + df/dy v_y + df/fz v_z )
+// dedv[0]=dE_x/dv, dedv[1]=dE_y/dv, dedv[2]=dE_z/dv, dhdv[0]=dH_x/dv, dhdv[1]=dH_y/dv, dhdv[2]=dH_z/dv
 
 #endif

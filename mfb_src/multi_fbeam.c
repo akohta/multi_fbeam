@@ -370,6 +370,66 @@ void calc_mfb_EH(double complex *e,double complex *h,double *x,Bobj *obj)
   
 }
 
+void calc_mfb_EH_dv(double complex *e,double complex *h,double complex *dedv,double complex *dhdv,double *x,double *v,Bobj *obj)
+{
+	double complex te[3], th[3],tde[3],tdh[3];
+	int i, j;
+  
+	for(i=0;i<3;i++){
+		e[i]=0.0;	  h[i]=0.0;
+		dedv[i]=0.0;    dhdv[i]=0.0;
+	}
+	// ipw
+	for(i=0;i<obj->n_ipw;i++){
+		calc_ipw_EH_dv(te,th,tde,tdh,x,v,&(obj->bd.ipw[i]));
+		for(j=0;j<3;j++){
+			e[j]+=te[j];    h[j]+=th[j];
+			dedv[j]+=tde[j];    dhdv[j]+=tdh[j];
+		}
+	}
+	// fpw
+	for(i=0;i<obj->n_fpw;i++){
+		calc_fpw_EH_dv(te,th,tde,tdh,x,v,&(obj->bd.fpw[i]));
+		for(j=0;j<3;j++){
+			e[j]+=te[j];    h[j] += th[j];
+			dedv[j]+=tde[j];    dhdv[j]+=tdh[j];
+		}
+	}
+	// lgb
+	for(i=0;i<obj->n_lgb;i++){
+		calc_lgb_EH_dv(te,th,tde,tdh,x,v,&(obj->bd.lgb[i]));
+		for(j=0;j<3;j++){
+			e[j]+=te[j];    h[j]+=th[j];
+			dedv[j]+=tde[j];    dhdv[j]+=tdh[j];
+		}
+	}
+	// bsb
+	for(i=0;i<obj->n_bsb;i++){
+		calc_bsb_EH_dv(te,th,tde,tdh,x,v,&(obj->bd.bsb[i]));
+		for(j=0;j<3;j++){
+      e[j]+=te[j];    h[j]+=th[j];
+      dedv[j]+=tde[j];    dhdv[j]+=tdh[j];
+		}
+	}
+	// blg
+	for(i=0;i<obj->n_blg;i++){
+    calc_bslgb_EH_dv(te,th,tde,tdh,x,v,&(obj->bd.blg[i]));
+    for(j=0;j<3;j++){
+      e[j]+=te[j];    h[j]+=th[j];
+      dedv[j]+=tde[j];    dhdv[j]+=tdh[j];
+		}
+	}
+	// rab
+	for(i=0;i<obj->n_rab;i++){
+    calc_rab_EH_dv(te,th,tde,tdh,x,v,&(obj->bd.rab[i]));
+    for(j=0;j<3;j++){
+      e[j]+=te[j];    h[j]+=th[j];
+      dedv[j]+=tde[j];    dhdv[j]+=tdh[j];
+		}
+	}
+
+}
+
 ////////////////////////////////////////////////////////////
 void check_data_mfb(Bobj *obj)
 {

@@ -45,5 +45,8 @@ void setup_rab(RAb *rab);  // calculate coefficient and memory allocation
 void  free_rab(RAb *rab);  // memory free 
 
 void calc_rab_EH(double _Complex *e,double _Complex *h,double *x,RAb *rab);
+void calc_rab_EH_dv(double complex *e,double complex *h,double complex *dedv,double complex *dhdv,double *x,double *v,RAb *rab);
+// directional devirative ( define : df/dv=df/dx v_x + df/dy v_y + df/fz v_z )
+// dedv[0]=dE_x/dv, dedv[1]=dE_y/dv, dedv[2]=dE_z/dv, dhdv[0]=dH_x/dv, dhdv[1]=dH_y/dv, dhdv[2]=dH_z/dv
 
 #endif
