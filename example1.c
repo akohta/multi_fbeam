@@ -35,7 +35,7 @@ int main()
   printf("Hy=% 15.14e\n",creal(h[1]*cet));
   printf("Hz=% 15.14e\n",creal(h[2]*cet));
   
-  free_mfb(&bm); // fee allocated memory
+  free_mfb(&bm); // free allocated memory
 
   return 0;
 }
