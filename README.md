@@ -25,7 +25,7 @@ The system of units is defined as <img src="https://latex.codecogs.com/gif.latex
 <img src="https://latex.codecogs.com/gif.latex?\mu_0=1"> ( permeability of vacuum ). 
 For the conversion from OSU to MKSA system of units, the unit of length in OSU is defined as 
 <img src="https://latex.codecogs.com/gif.latex?1\times10^{-6}"> [m] in MKSA, the unit of power in OSU is defined as
-<img src="https://latex.codecogs.com/gif.latex?1\times10^{-3}"> [W] in MKSA. The conversion of base units are follows.  
+<img src="https://latex.codecogs.com/gif.latex?1\times10^{-3}"> [W] in MKSA. The conversions of base unit are follows.  
 <img src="https://latex.codecogs.com/gif.latex?a=1\times10^{-6}">,  
 <img src="https://latex.codecogs.com/gif.latex?b=1\times10^{-3}">,  
 <img src="https://latex.codecogs.com/gif.latex?a\,\mathrm{[m]}=1\,\mathrm{[L]}">,  
