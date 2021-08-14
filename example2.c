@@ -1,5 +1,5 @@
 // calculation example for electric field intensity distribution 
-#include "mfb_src/multi_fbeam.h"
+#include "multi_fbeam.h"
 
 int main()
 {
@@ -14,9 +14,9 @@ int main()
   print_data_mfb(&bm); 
   setup_mfb(&bm);     
   
-  max=100;
+  max=150;
   rang=4.0*bm.lambda_0;
-  dr=rang*2/(double)max;
+  dr=rang*2/(double)(max-1);
   
   // x=0 plane
   if((fp=fopen("Ie_yz.txt","wt"))==NULL){    printf("Can not open the file.\n");    exit(1);  }
@@ -59,6 +59,8 @@ int main()
     fprintf(fp,"\n");
   }
   fclose(fp);
+  
+  printf("intensity plot is finished\n");
   
   free_mfb(&bm);
   return 0;

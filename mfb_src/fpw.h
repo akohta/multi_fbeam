@@ -6,8 +6,10 @@
 #include <math.h>
 #include <complex.h>
 #include <string.h>
-#include "const.h"
+#include "mfb_const.h"
 #include "gauleg.h"
+#include "osu_mksa.h"
+#include "my_utils.h"
 
 
 typedef struct fpw_data{
@@ -39,8 +41,8 @@ typedef struct fpw{
   FpwD data;
 }Fpw;
 
-void read_data_fpw(char *rfile,Fpw *fpw);
 void print_data_fpw(Fpw *fpw);
+void print_data_fpw_mksa(Fpw *fpw);
 void setup_Fpw(Fpw *fpw);  // calculate parameter and memory allocation
 void free_Fpw(Fpw *fpw);   // memory free 
 

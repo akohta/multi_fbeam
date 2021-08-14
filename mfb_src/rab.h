@@ -6,8 +6,10 @@
 #include <math.h>
 #include <complex.h>
 #include <string.h>
-#include "const.h"
+#include "mfb_const.h"
 #include "gauleg.h"
+#include "osu_mksa.h"
+#include "my_utils.h"
 
 typedef struct rab_data{
   double ki;             // wave number 
@@ -39,8 +41,8 @@ typedef struct rab{
   RAbD data;
 }RAb;
 
-void read_data_rab(char *rfile,RAb *rab);
 void print_data_rab(RAb *rab);
+void print_data_rab_mksa(RAb *rab);
 void setup_rab(RAb *rab);  // calculate coefficient and memory allocation 
 void  free_rab(RAb *rab);  // memory free 
 

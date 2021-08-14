@@ -74,47 +74,35 @@ void calc_rab_EH_dv(double complex *e,double complex *h,double complex *dedv,dou
   }
 }
 
-void read_data_rab(char *rfile,RAb *rab)
-{
-  FILE *fp;
-  if((fp=fopen(rfile,"rt"))==NULL){    printf("Can not open the file.\n");    exit(1);  }
-  char buf[256]="";  int tmpi;  double tmpd,tmpd2;
-  fgets(buf,256,fp);  fgets(buf,256,fp);
-  
-  printf("-- beam parameter --\n");
-  fscanf(fp,"%d",&tmpi); 
-  if(tmpi!=5){ printf("beam type %d is not supported\n",tmpi); exit(1);}
-  else                                                printf("incident beam type                          : focused radially and azimuthally polarized beam\n");
-  fscanf(fp,"%lf",&tmpd);  rab->lambda0=tmpd;         printf("wave length of incident beam in vacuum   [m]: %15.14g\n",tmpd);
-  fscanf(fp,"%lf",&tmpd);  rab->ni     =tmpd;         printf("refractive index of surrounding             : %15.14g\n",tmpd); 
-  fscanf(fp,"%lf",&tmpd);  rab->NA     =tmpd;         printf("numerical aperture                          : %15.14g\n",tmpd);
-  fscanf(fp,"%lf",&tmpd);  rab->power  =tmpd;         printf("incident beam power                      [W]: %15.14g\n",tmpd);
-  fscanf(fp,"%lf",&tmpd); 
-  fscanf(fp,"%lf",&tmpd2); rab->e0r    =tmpd+I*tmpd2; printf("radial-component of polarization coefficient:%7.6g+%7.6gi\n",tmpd,tmpd2);
-  fscanf(fp,"%lf",&tmpd);
-  fscanf(fp,"%lf",&tmpd2); rab->e0a    =tmpd+I*tmpd2; printf("azimuthal-component of polarization coef    :%7.6g+%7.6gi\n",tmpd,tmpd2);
-  fscanf(fp,"%lf",&tmpd);  rab->fx     =tmpd;         printf("x-component of translation vector        [m]: %15.14g\n",tmpd);
-  fscanf(fp,"%lf",&tmpd);  rab->fy     =tmpd;         printf("y-component of translation vector        [m]: %15.14g\n",tmpd);
-  fscanf(fp,"%lf",&tmpd);  rab->fz     =tmpd;         printf("z-component of translation vector        [m]: %15.14g\n",tmpd);
-  fscanf(fp,"%lf",&tmpd);  rab->theta  =tmpd;         printf("rotation parameter theta               [rad]: %15.14g\n",tmpd);
-  fscanf(fp,"%lf",&tmpd);  rab->phi    =tmpd;         printf("rotation parameter phi                 [rad]: %15.14g\n",tmpd);
-  fscanf(fp,"%d\n",&tmpi); rab->nn     =tmpi;         printf("gauss-legendre integration sampling number  : %15d\n",tmpi);
-  
-  fclose(fp);
-}
-
 void print_data_rab(RAb *rab)
 {
   printf("-- focused radially and azimuthally polarized beam --\n");
-  printf("wave length of incident beam in vacuum   [m]: %15.14g\n",rab->lambda0);
+  printf("wave length of incident beam in vacuum      : %15.14g\n",rab->lambda0);
   printf("refractive index of surrounding             : %15.14g\n",rab->ni);
   printf("numerical aperture                          : %15.14g\n",rab->NA);
-  printf("incident beam power                      [W]: %15.14g\n",rab->power);
+  printf("incident beam power                         : %15.14g\n",rab->power);
   printf("radial-component of polarization coefficient:%7.6g+%7.6gi\n",creal(rab->e0r),cimag(rab->e0r));
   printf("azimuthal-component of polarization coef    :%7.6g+%7.6gi\n",creal(rab->e0a),cimag(rab->e0a));
-  printf("x-component of translation vector        [m]: %15.14g\n",rab->fx);
-  printf("y-component of translation vector        [m]: %15.14g\n",rab->fy);
-  printf("z-component of translation vector        [m]: %15.14g\n",rab->fz);
+  printf("x-component of translation vector           : %15.14g\n",rab->fx);
+  printf("y-component of translation vector           : %15.14g\n",rab->fy);
+  printf("z-component of translation vector           : %15.14g\n",rab->fz);
+  printf("rotation parameter theta               [rad]: %15.14g\n",rab->theta);
+  printf("rotation parameter phi                 [rad]: %15.14g\n",rab->phi);
+  printf("gauss-legendre integration sampling number  : %15d\n",rab->nn);
+}
+
+void print_data_rab_mksa(RAb *rab)
+{
+  printf("-- focused radially and azimuthally polarized beam, MKSA system --\n");
+  printf("wave length of incident beam in vacuum   [m]: %15.14g\n",OSUtoMKSA_length(rab->lambda0));
+  printf("refractive index of surrounding             : %15.14g\n",rab->ni);
+  printf("numerical aperture                          : %15.14g\n",rab->NA);
+  printf("incident beam power                      [W]: %15.14g\n",OSUtoMKSA_power(rab->power));
+  printf("radial-component of polarization coefficient:%7.6g+%7.6gi\n",creal(rab->e0r),cimag(rab->e0r));
+  printf("azimuthal-component of polarization coef    :%7.6g+%7.6gi\n",creal(rab->e0a),cimag(rab->e0a));
+  printf("x-component of translation vector        [m]: %15.14g\n",OSUtoMKSA_length(rab->fx));
+  printf("y-component of translation vector        [m]: %15.14g\n",OSUtoMKSA_length(rab->fy));
+  printf("z-component of translation vector        [m]: %15.14g\n",OSUtoMKSA_length(rab->fz));
   printf("rotation parameter theta               [rad]: %15.14g\n",rab->theta);
   printf("rotation parameter phi                 [rad]: %15.14g\n",rab->phi);
   printf("gauss-legendre integration sampling number  : %15d\n",rab->nn);
@@ -130,9 +118,9 @@ void setup_rab(RAb *rab)
   ce=sqrt(1.0/M_PI)/(kr*sqrt(pow(cabs(rab->e0r),2)+pow(cabs(rab->e0a),2)));
   rab->data.er= rab->e0r*ce;
   rab->data.ea= rab->e0a*ce;
-  rab->data.hr=-rab->data.ea*rab->ni/Z0;
-  rab->data.ha= rab->data.er*rab->ni/Z0;
-  rab->data.E0=sqrt(2.0*Z0*rab->power*rab->ni)/rab->lambda0;
+  rab->data.hr=-rab->data.ea*rab->ni;
+  rab->data.ha= rab->data.er*rab->ni;
+  rab->data.E0=sqrt(2.0*rab->power*rab->ni)/rab->lambda0;
 
   rab->data.cos_t=cos(rab->theta);
   rab->data.sin_t=sin(rab->theta);
@@ -140,18 +128,18 @@ void setup_rab(RAb *rab)
   rab->data.sin_p=sin(rab->phi);
   rab->data.nt=rab->nn;
   // memory allocation 
-  rab->data.ct=(double *)malloc(sizeof(double)*rab->data.nt);
-  rab->data.st=(double *)malloc(sizeof(double)*rab->data.nt);
-  rab->data.wt=(double *)malloc(sizeof(double)*rab->data.nt);
+  rab->data.ct=(double *)m_alloc2(rab->data.nt,sizeof(double),"rab.c,setup_rab(),rab->data.ct");
+  rab->data.st=(double *)m_alloc2(rab->data.nt,sizeof(double),"rab.c,setup_rab(),rab->data.st");
+  rab->data.wt=(double *)m_alloc2(rab->data.nt,sizeof(double),"rab.c,setup_rab(),rab->data.wt");
   // gauleg data
-  xt=(double *)malloc(sizeof(double)*rab->data.nt);
+  xt=(double *)m_alloc2(rab->data.nt,sizeof(double),"rab.c,setup_rab(),xt");
   gauleg( 0.0 ,kr   ,xt,rab->data.wt,rab->data.nt);
   for(i=0;i<rab->data.nt;i++){    rab->data.st[i]=xt[i];         rab->data.ct[i]=sqrt(1.0-xt[i]*xt[i]);    rab->data.wt[i]*=xt[i];  } 
   free(xt);                                                
   // trapezoidral data
   nnc=(2<<(TRAP_MNUM))+1;
-  rab->data.cp=(double *)malloc(sizeof(double)*nnc);
-  rab->data.sp=(double *)malloc(sizeof(double)*nnc);
+  rab->data.cp=(double *)m_alloc2(nnc,sizeof(double),"rab.c,setup_rab(),rab->data.cp");
+  rab->data.sp=(double *)m_alloc2(nnc,sizeof(double),"rab.c,setup_rab(),rab->data.sp");
   h=2.0*M_PI;
   rab->data.cp[0]=-1.0;
   rab->data.sp[0]= 0.0;
@@ -191,9 +179,9 @@ void calc_rab_eh(double complex *e,double complex *h,double *x,RAb *rab)
   }
   
   for(j=0;j<rab->data.nt;j++){
-	int_phi_rab(eh,rab->data.ct[j],rab->data.st[j],x,rab);
-	
-	e[0]+=eh[0]*rab->data.wt[j];    e[1]+=eh[1]*rab->data.wt[j];    e[2]+=eh[2]*rab->data.wt[j];
+  int_phi_rab(eh,rab->data.ct[j],rab->data.st[j],x,rab);
+  
+  e[0]+=eh[0]*rab->data.wt[j];    e[1]+=eh[1]*rab->data.wt[j];    e[2]+=eh[2]*rab->data.wt[j];
     h[0]+=eh[3]*rab->data.wt[j];    h[1]+=eh[4]*rab->data.wt[j];    h[2]+=eh[5]*rab->data.wt[j];
   }
 }
@@ -206,8 +194,8 @@ void int_phi_rab(double complex *eh,double ct,double st,double *x,RAb *rab)
   double complex Ia[6],It[6],Is[6];
   int i,j,s,sc,cc;
   double f_order,cr_coef;
-  double cep=rab->ni*rab->ni*epsilon0;
-  double cmu=mu0;
+  double cep=rab->ni*rab->ni;
+  double cmu=1.0;
 
   cc=0;
   h=2.0*M_PI;
@@ -236,7 +224,7 @@ void int_phi_rab(double complex *eh,double ct,double st,double *x,RAb *rab)
       else    abss+=cmu*creal(It[i]*conj(It[i]));
     }
     cr_coef=sqrt((double)sc)*f_order;
-    if((cc>1 && fabs(abst-abss) < EPS*cr_coef) || (abss==0.0 && abst==0.0) ){
+    if((cc>TRAP_LNUM && fabs(abst-abss) < TRAP_EPS*cr_coef) || (abss==0.0 && abst==0.0) ){
       break;
     }
     abst=abss;
@@ -273,8 +261,8 @@ void calc_rab_eh_dv(double complex *e,double complex *h,double complex *dedv,dou
   int i,j;
 
   for(i=0;i<3;i++){
-	  e[i]=0.0;	  h[i]=0.0;
-	  dedv[i]=0.0;	  dhdv[i]=0.0;
+    e[i]=0.0;    h[i]=0.0;
+    dedv[i]=0.0;    dhdv[i]=0.0;
   }
   for(j=0;j<rab->data.nt;j++){
     int_phi_rab_dv(Et,dEt,rab->data.ct[j],rab->data.st[j],x,v,rab);
@@ -322,15 +310,15 @@ void int_phi_rab_dv(double complex *eh,double complex *deh,double ct,double st,d
   while(cc<=TRAP_MNUM){
     h*=0.5;
     for(i=0;i<6;i++){
-    	Is[i]=0.0;
-    	dIs[i]=0.0;
+      Is[i]=0.0;
+      dIs[i]=0.0;
     }
     for(s=1;s<=sc;s++){
       ac_eh_rab_dv(Ia,dIa,ct,st,rab->data.cp[j],rab->data.sp[j],x,v,rab);
       j++;
       for(i=0;i<6;i++){
-    	  Is[i]+=Ia[i];
-    	  dIs[i]+=dIa[i];
+        Is[i]+=Ia[i];
+        dIs[i]+=dIa[i];
       }
     }
     abss=0.0;
@@ -341,7 +329,7 @@ void int_phi_rab_dv(double complex *eh,double complex *deh,double ct,double st,d
       else    abss+=cmu*creal(It[i]*conj(It[i]));
     }
     cr_coef=sqrt((double)sc)*f_order;
-    if((cc>1 && fabs(abst-abss) < EPS*cr_coef) || (abss==0.0 && abst==0.0) ){
+    if((cc>TRAP_LNUM && fabs(abst-abss) < TRAP_EPS*cr_coef) || (abss==0.0 && abst==0.0) ){
       break;
     }
     abst=abss;
@@ -354,8 +342,8 @@ void int_phi_rab_dv(double complex *eh,double complex *deh,double ct,double st,d
     exit(1);
   }
   for(i=0;i<6;i++){
-	  eh[i]=It[i];
-	  deh[i]=dIt[i];
+    eh[i]=It[i];
+    deh[i]=dIt[i];
   }
 }
 

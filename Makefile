@@ -1,8 +1,9 @@
 CC      =gcc
 CFLAGS  =-O3 -Wall
 LDFLAGS =-lm
-SRCDIR  =mfb_src
-OBJDIR  =mfb_src
+SRCDIR1 =mfb_src
+SRCDIR2 =com_src
+OBJDIR =obj
 TARGET1 =example1.out
 TRGSRC1 =example1.c
 TARGET2 =example2.out
@@ -10,15 +11,21 @@ TRGSRC2 =example2.c
 TARGET3 =fpw_verification.out
 TRGSRC3 =fpw_verification.c
 
-SRCS=$(wildcard $(SRCDIR)/*.c)
-OBJS=$(addprefix $(OBJDIR)/,$(patsubst %.c,%.o,$(notdir $(SRCS)) ))
-HEAD=$(wildcard $(SRCDIR)/*.h)
+SRCS1=$(wildcard $(SRCDIR1)/*.c)
+OBJS1=$(addprefix $(OBJDIR)/,$(patsubst %.c,%.o,$(notdir $(SRCS1)) ))
+HEAD1=$(wildcard $(SRCDIR1)/*.h)
+SRCS2=$(wildcard $(SRCDIR2)/*.c)
+OBJS2=$(addprefix $(OBJDIR)/,$(patsubst %.c,%.o,$(notdir $(SRCS2)) ))
+HEAD2=$(wildcard $(SRCDIR2)/*.h)
 
-TRGOBJ1=$(OBJS) $(patsubst %.c,%.o,$(TRGSRC1))
-TRGOBJ2=$(OBJS) $(patsubst %.c,%.o,$(TRGSRC2))
-TRGOBJ3=$(OBJS) $(patsubst %.c,%.o,$(TRGSRC3))
+TRGOBJ1=$(OBJS1) $(OBJS2) $(patsubst %.c,%.o,$(TRGSRC1))
+TRGOBJ2=$(OBJS1) $(OBJS2) $(patsubst %.c,%.o,$(TRGSRC2))
+TRGOBJ3=$(OBJS1) $(OBJS2) $(patsubst %.c,%.o,$(TRGSRC3))
 
-all : $(TARGET1) $(TARGET2) $(TARGET3)
+all : directories $(TARGET1) $(TARGET2) $(TARGET3)
+
+directories:
+	@mkdir -p $(OBJDIR)
 
 $(TARGET1) : $(TRGOBJ1)  
 	$(CC) $(LDFLAGS) -o $@ $^
@@ -29,14 +36,18 @@ $(TARGET2) : $(TRGOBJ2)
 $(TARGET3) : $(TRGOBJ3)  
 	$(CC) $(LDFLAGS) -o $@ $^
 
-$(OBJDIR)/%.o : $(SRCDIR)/%.c
-	$(CC) $(CFLAGS) -I $(SRCDIR) -c $< -o $@
+$(OBJDIR)/%.o : $(SRCDIR1)/%.c
+	$(CC) $(CFLAGS) -I $(SRCDIR2) -c $< -o $@
+
+$(OBJDIR)/%.o : $(SRCDIR2)/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 .c.o :
-	$(CC) $(CFLAGS) -c $<
+	$(CC) $(CFLAGS) -I $(SRCDIR1) -I $(SRCDIR2) -c $<
         
 clean:
-	@rm -rf $(TARGET1) $(TARGET2) $(TARGET3) $(OBJDIR)/*.o *.o
+	@rm -rf $(TARGET1) $(TARGET2) $(TARGET3) $(OBJDIR) *.o
         
-$(OBJS) : $(HEAD)
+$(OBJS1) : $(HEAD1)
+$(OBJS1) $(OBJS2) : $(HEAD2)
 

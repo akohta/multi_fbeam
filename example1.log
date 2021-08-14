@@ -1,4 +1,18 @@
  "fpw.txt" No.00 -- focused plane wave --
+wave length of incident beam in vacuum      :           1.064
+refractive index of surrounding             :            1.33
+numerical aperture                          :             1.2
+incident beam power                         :               1
+x-component of polarization coefficient     :      1+      0i
+y-component of polarization coefficient     :      0+      0i
+x-component of translation vector           :               0
+y-component of translation vector           :               0
+z-component of translation vector           :               0
+rotation parameter theta               [rad]:               0
+rotation parameter phi                 [rad]:               0
+gauss-legendre integration sampling number  :              64
+
+ "fpw.txt" No.00 -- focused plane wave, MKSA system --
 wave length of incident beam in vacuum   [m]:       1.064e-06
 refractive index of surrounding             :            1.33
 numerical aperture                          :             1.2
@@ -12,33 +26,33 @@ rotation parameter theta               [rad]:               0
 rotation parameter phi                 [rad]:               0
 gauss-legendre integration sampling number  :              64
 
-Electromagnetic field at r=( 2.5e-06,-3e-06, 1e-05)
-Ex= 1.93263335083614e+04 +3.51389694109099e+04 I
-Ey= 8.71920441223253e+02 +1.31727862738714e+03 I
-Ez=-5.78572810287321e+03 -7.42429706451866e+03 I
-Hx= 3.07820779318467e+00 +4.65049005036511e+00 I
-Hy= 6.71005653849938e+01 +1.22348626569702e+02 I
-Hz= 2.45109610833656e+01 +3.14526803168286e+01 I
-Real electromagnetic field at r=( 2.5e-06,-3e-06, 1e-05), t=1e-08 [sec]
-Ex= 2.93193919861993e+04
-Ey= 1.06292644130356e+03
-Ez=-5.77680329150469e+03
-Hx= 3.75253096556881e+00
-Hy= 1.02132576467084e+02
-Hz= 2.44731515457862e+01
+Electromagnetic field at r=( 2.5,-3, 10)
+Ex= 3.14872104089278e-02 +5.72497687114582e-02 I (= 1.93263335083613e+04 +3.51389694109096e+04 I (MKSA))
+Ey= 1.42056652291361e-03 +2.14616131351441e-03 I (= 8.71920441223247e+02 +1.31727862738713e+03 I (MKSA))
+Ez=-9.42633211132370e-03 -1.20959520701506e-02 I (=-5.78572810287327e+03 -7.42429706451867e+03 I (MKSA))
+Hx= 1.88935347547510e-03 +2.85439454697416e-03 I (= 3.07820779318465e+00 +4.65049005036509e+00 I (MKSA))
+Hy= 4.11852269028664e-02 +7.50955810523489e-02 I (= 6.71005653849935e+01 +1.22348626569701e+02 I (MKSA))
+Hz= 1.50444260496725e-02 +1.93051395039604e-02 I (= 2.45109610833659e+01 +3.14526803168288e+01 I (MKSA))
+Real electromagnetic field at r=( 2.5,-3, 10), t=0.1 
+Ex= 5.80313117062744e-02 (= 3.56186676875362e+04 (MKSA))
+Ey= 2.37496794022049e-03 (= 1.45771638351783e+03 (MKSA))
+Ez=-1.45649602051743e-02 (=-8.93973377779434e+03 (MKSA))
+Hx= 3.15870736049325e-03 (= 5.14628826192254e+00 (MKSA))
+Hy= 7.60234518704975e-02 (= 1.23860349611773e+02 (MKSA))
+Hz= 2.32456764874581e-02 (= 3.78727556544439e+01 (MKSA))
 
-Directional derivative of electromagnetic field at r=( 2.5e-06,-3e-06, 1e-05)
+Directional derivative of electromagnetic field at r=( 2.5,-3, 10)
 v=( 0.107084, 0.275436, 0.955336),|v|=1
-dEx/dv=-2.33416339594562e+11 +1.20959598717062e+11 I
-dEy/dv=-9.11116823183651e+09 +3.79071885654990e+09 I
-dEz/dv= 5.26812248251537e+10 -3.18293556614602e+10 I
-dHx/dv=-3.21658579501918e+07 +1.33826663240440e+07 I
-dHy/dv=-8.11410757104211e+08 +4.23399206387329e+08 I
-dHz/dv=-2.26481792236234e+08 +1.30608577234994e+08 I
-Directional derivative using central difference. h=1.064e-13
-dEx/dv=-2.33416341146046e+11 +1.20959598530306e+11 I
-dEy/dv=-9.11116824252709e+09 +3.79071890922848e+09 I
-dEz/dv= 5.26812248094039e+10 -3.18293554389806e+10 I
-dHx/dv=-3.21658580076307e+07 +1.33826665204866e+07 I
-dHy/dv=-8.11410762206097e+08 +4.23399205754106e+08 I
-dHz/dv=-2.26481792284427e+08 +1.30608575617242e+08 I
+dEx/dv=-3.80290932810196e-01 +1.97072058915667e-01 I (=-2.33416339594560e+11 +1.20959598717062e+11 I (MKSA))
+dEy/dv=-1.48442678515744e-02 +6.17598584778829e-03 I (=-9.11116823183643e+09 +3.79071885654987e+09 I (MKSA))
+dEz/dv= 8.58302900522749e-02 -5.18576179211339e-02 I (= 5.26812248251538e+10 -3.18293556614606e+10 I (MKSA))
+dHx/dv=-1.97428762425939e-02 +8.21406117755843e-03 I (=-3.21658579501915e+07 +1.33826663240439e+07 I (MKSA))
+dHy/dv=-4.98030619429579e-01 +2.59875491145347e-01 I (=-8.11410757104204e+08 +4.23399206387327e+08 I (MKSA))
+dHz/dv=-1.39010810849342e-01 +8.01654033467634e-02 I (=-2.26481792236236e+08 +1.30608577234996e+08 I (MKSA))
+Directional derivative using central difference. h=1.064e-07
+dEx/dv=-3.80290934336002e-01 +1.97072060105350e-01 I
+dEy/dv=-1.48442680909935e-02 +6.17598590492438e-03 I
+dEz/dv= 8.58302906103723e-02 -5.18576179022099e-02 I
+dHx/dv=-1.97428765581274e-02 +8.21406126587916e-03 I
+dHy/dv=-4.98030621416209e-01 +2.59875491987855e-01 I
+dHz/dv=-1.39010810518450e-01 +8.01654036888341e-02 I
