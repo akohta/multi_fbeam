@@ -32,7 +32,7 @@ For the conversion from OSU to MKSA system of units, the unit of length in OSU i
 <img src="https://latex.codecogs.com/gif.latex?\frac{ab}{c_0^3}\,\mathrm{[kg]}=1\,\mathrm{[M]}">,  
 <img src="https://latex.codecogs.com/gif.latex?\frac{a}{c_0}\,\mathrm{[s]}=1\,\mathrm{[T]}">,  
 <img src="https://latex.codecogs.com/gif.latex?\sqrt{\frac{b}{c_0\mu_0}}\,\mathrm{[A]}=1\,\mathrm{[I]}">.  
-
+Please see com_src/osu_mksa.h and com_src/osu_mksa.c for detail of conversions.
 
 
 
