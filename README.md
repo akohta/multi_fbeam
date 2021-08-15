@@ -10,7 +10,7 @@ This program also supports superposition of these beams. The analysis method use
 2. type './example1.out.  
     This executable ( source file is example1.c ) calculates electromagnetic field. This is the simplest example using this code. The beam datafile 'fpw.txt' is used.
 4. type './example2.out.   
-    This executable ( source file is example2.c ) calculate electric field intensity distributions and output to a text files.
+    This executable ( source file is example2.c ) calculate electromagnetic field intensity distributions and output to a text files.
 5. type './fpw_verification.out.  
     This executable ( source file is fpw_verification.c ) show verification results about focused plane wave. This is for a verification, not to demonstrate the use.
     
