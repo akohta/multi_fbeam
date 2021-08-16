@@ -1,6 +1,5 @@
 // verification of focused plane wave.
-#include <stdio.h>
-#include "mfb_src/multi_fbeam.h"
+#include "multi_fbeam.h"
 
 void verification_1(); // using analytical solutions
 void verification_2(); // using Fraunhofer diffraction theory
@@ -17,7 +16,7 @@ void verification_1()
 {
   void fpw_f0(double complex *e,Fpw *fpw);
   void fpw_f1(double complex *e,double z,Fpw *fpw);
-	
+  
   Bobj bm;
   double complex e[3],h[3];
   double r[3];
@@ -29,9 +28,9 @@ void verification_1()
   print_data_mfb(&bm);
   setup_mfb(&bm);
     
-  r[0]=0.0e-6;
-  r[1]=0.0e-6;
-  r[2]=0.0e-6;
+  r[0]=0.0;
+  r[1]=0.0;
+  r[2]=0.0;
   calc_mfb_EH(e,h,r,&bm);
   
   printf("Electric field at origin\n");
@@ -44,7 +43,7 @@ void verification_1()
   printf("Ey=% 15.14e %+15.14e I\n",creal(e[1]),cimag(e[1]));
   printf("Ez=% 15.14e %+15.14e I\n\n",creal(e[2]),cimag(e[2]));
   
-  r[2]=1.2e-6;  
+  r[2]=1.2;  
   calc_mfb_EH(e,h,r,&bm);
   printf("Electric field at (0,0,%g)\n",r[2]);
   printf("Ex=% 15.14e %+15.14e I\n",creal(e[0]),cimag(e[0]));
@@ -85,10 +84,10 @@ void fpw_f1(double complex *e,double z,Fpw *fpw)
   if(z==0.0) fpw_f0(e,fpw);
   else{
     cf=M_PI/(pow(k,3)*pow(z,3))*(cexp(I*k*cos_t*z)*(I*k*k*z*z*cos_t*(cos_t+1.0)-k*z*(2.0*cos_t+1.0)-2.0*I)
-					+cexp(I*k*z)*(-2.0*I*k*k*z*z+3.0*k*z+2.0*I));
-	e[0]=fpw->data.E0*fpw->data.ex*cf;
-	e[1]=fpw->data.E0*fpw->data.ey*cf;
-	e[2]=0.0;
+          +cexp(I*k*z)*(-2.0*I*k*k*z*z+3.0*k*z+2.0*I));
+  e[0]=fpw->data.E0*fpw->data.ex*cf;
+  e[1]=fpw->data.E0*fpw->data.ey*cf;
+  e[2]=0.0;
   }
 }
 
@@ -105,11 +104,11 @@ void verification_2()
   read_data_mfb_fpw("fpw_verification2.txt",&bm);
   print_data_mfb(&bm);
   setup_mfb(&bm);
-	
+  
   R=0.60983494563325*bm.bd.fpw[0].lambda0/(bm.bd.fpw[0].NA); // radius of beam spot ( radius of airy disk )
-  epsilon=bm.bd.fpw[0].ni*bm.bd.fpw[0].ni*epsilon0; // permittivity
-  mu=mu0; // permeability
-  cc=c0/bm.bd.fpw[0].ni; // speed of light
+  epsilon=bm.bd.fpw[0].ni*bm.bd.fpw[0].ni; // permittivity
+  mu=1.0; // permeability
+  cc=1.0/bm.bd.fpw[0].ni; // speed of light
 
   int nc=80;
   double xt[nc];
@@ -139,8 +138,8 @@ void verification_2()
   }
   
   printf("P_airy/P_total = 0.8378 ( Fraunhofer diffraction theory )\n");
-  printf("Pu = %15.14g[W], Pu/P = %g\n",0.25*cc*U,0.25*cc*U/bm.bd.fpw[0].power);
-  printf("Ps = %15.14g[W], Ps/P = %g\n",0.5*S,0.5*S/bm.bd.fpw[0].power);	
+  printf("Pu = %15.14g, Pu/P = %g\n",0.25*cc*U,0.25*cc*U/bm.bd.fpw[0].power);
+  printf("Ps = %15.14g, Ps/P = %g\n",0.5*S,0.5*S/bm.bd.fpw[0].power);  
   
   free_mfb(&bm);
 }

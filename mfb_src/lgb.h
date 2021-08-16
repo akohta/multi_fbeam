@@ -6,8 +6,10 @@
 #include <math.h>
 #include <complex.h>
 #include <string.h>
-#include "const.h"
+#include "mfb_const.h"
 #include "gauleg.h"
+#include "osu_mksa.h"
+#include "my_utils.h"
 
 typedef struct lgb_data{
   double ki;            // wave number 
@@ -40,8 +42,8 @@ typedef struct lgb{
   LGbD data;
 }LGb;
 
-void read_data_lgb(char *rfile,LGb *lgb);
 void print_data_lgb(LGb *lgb);
+void print_data_lgb_mksa(LGb *lgb);
 void setup_LGb(LGb *lgb);  // calculate coefficient and memory allocation
 void free_LGb(LGb *fpw);   // memory free 
 

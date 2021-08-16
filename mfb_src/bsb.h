@@ -6,7 +6,9 @@
 #include <math.h>
 #include <complex.h>
 #include <string.h>
-#include "const.h"
+#include "mfb_const.h"
+#include "osu_mksa.h"
+#include "my_utils.h"
 
 typedef struct bsb_data{
   double ki;             // wave number 
@@ -33,8 +35,8 @@ typedef struct bsb{
   BsbD data;
 }Bsb;
 
-void read_data_bsb(char *rfile,Bsb *bsb);
 void print_data_bsb(Bsb *bsb);
+void print_data_bsb_mksa(Bsb *bsb);
 void setup_Bsb(Bsb *bsb);  // calculate coefficient and memory allocation 
 void free_Bsb(Bsb *bsb);   // memory free
 

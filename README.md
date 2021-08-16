@@ -10,12 +10,29 @@ This program also supports superposition of these beams. The analysis method use
 2. type './example1.out.  
     This executable ( source file is example1.c ) calculates electromagnetic field. This is the simplest example using this code. The beam datafile 'fpw.txt' is used.
 4. type './example2.out.   
-    This executable ( source file is example2.c ) calculate electric field intensity distributions and output to a text files.
+    This executable ( source file is example2.c ) calculate electromagnetic field intensity distributions and output to a text files.
 5. type './fpw_verification.out.  
     This executable ( source file is fpw_verification.c ) show verification results about focused plane wave. This is for a verification, not to demonstrate the use.
     
-Please see mfb_src/multi_fbeam.h for detail of functions. The samples of beam are in beam_sample folder, please copy and use.  
+Please see mfb_src/multi_fbeam.h for detail of functions. The samples of beam are in beam_sample folder, please copy and use. 
 I_example2.pdf is the visualization result of example2 outputs ( created by Gnuplot script file 'gscript.plt' ).
+
+
+## System of units
+
+This program use the own defined system of units (OSU), optimized for optics. 
+The system of units is defined as <img src="https://latex.codecogs.com/gif.latex?c_0=1"> ( speed of light in vacuum ), 
+<img src="https://latex.codecogs.com/gif.latex?\mu_0=1"> ( permeability of vacuum ). 
+For the conversion from OSU to MKSA system of units, the unit of length in OSU is defined as 
+<img src="https://latex.codecogs.com/gif.latex?1\times10^{-6}"> [m] in MKSA, the unit of power in OSU is defined as
+<img src="https://latex.codecogs.com/gif.latex?1\times10^{-3}"> [W] in MKSA. The conversions of base unit are follows.  
+<img src="https://latex.codecogs.com/gif.latex?a=1\times10^{-6}">,  
+<img src="https://latex.codecogs.com/gif.latex?b=1\times10^{-3}">,  
+<img src="https://latex.codecogs.com/gif.latex?a\,\mathrm{[m]}=1\,\mathrm{[L]}">,  
+<img src="https://latex.codecogs.com/gif.latex?\frac{ab}{c_0^3}\,\mathrm{[kg]}=1\,\mathrm{[M]}">,  
+<img src="https://latex.codecogs.com/gif.latex?\frac{a}{c_0}\,\mathrm{[s]}=1\,\mathrm{[T]}">,  
+<img src="https://latex.codecogs.com/gif.latex?\sqrt{\frac{b}{c_0\mu_0}}\,\mathrm{[A]}=1\,\mathrm{[I]}">.  
+Please see com_src/osu_mksa.h and com_src/osu_mksa.c for detail of conversions.
 
 
 

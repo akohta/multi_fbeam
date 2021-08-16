@@ -6,7 +6,8 @@
 #include <string.h>
 #include <math.h>
 #include <complex.h>
-#include "const.h"
+#include "mfb_const.h"
+#include "osu_mksa.h"
 
 typedef struct incident_planewave_data{
   double E0;           // power coefficient
@@ -30,8 +31,8 @@ typedef struct incident_planewave{
   IpwD data;            // data
 }Ipw;
 
-void read_data_ipw(char *rfile,Ipw *ipw);
 void print_data_ipw(Ipw *ipw);
+void print_data_ipw_mksa(Ipw *ipw);
 void setup_ipw(Ipw *ipw);
 
 void calc_ipw_EH(double complex *e,double complex *h,double *x,Ipw *ipw);
