@@ -1,21 +1,43 @@
 # multi_fbeam
 This is the electromagnetic field analysis program for focused beams.
 This program can analyze plane wave, focused plane wave, focused radial-azimuthal polarization beam.
-In additon, spiral phase modulated beam ( like a Laguerre Gaussian beam ), and Bessel beam can be analyzed. 
+In additon, spiral phase modulated beam ( like a Laguerre Gaussian beam ) and Bessel beam can be analyzed. 
 This program also supports superposition of these beams. The analysis method used here based on Fourier optics.
+
+![analysis model](analysis_model.png "analysis model")
+
 
 ## Usage of example code  
 
-1. type 'make' command to compile
-2. type './example1.out.  
-    This executable ( source file is example1.c ) calculates electromagnetic field. This is the simplest example using this code. The beam datafile 'fpw.txt' is used.
-4. type './example2.out.   
-    This executable ( source file is example2.c ) calculate electromagnetic field intensity distributions and output to a text files.
-5. type './fpw_verification.out.  
-    This executable ( source file is fpw_verification.c ) show verification results about focused plane wave. This is for a verification, not to demonstrate the use.
+1. type 'make' command to compile  
+   The executable example1.out and example2.out are created. 
+   The example1.out is the executable of source code example1.c, it shows a simplest example using "multi_fbeam". 
+   The example2.out is the executable of source code example2.c, it shows a example of electromagnetic field intensity analysis.
+
+3. type './example1.out'.  
+    This executable calculates electromagnetic field. The beam datafile "fpw.txt" is used. 
+    The "fpw.txt" is the sample of focused plane wave datafile. 
+    This program searches for a beam datafile in current directory using the default beam datafile name and reads the found file. 
+    The default beam datafile name is defined for plane wave as "ipw.txt", for focused plane wave as "fpw.txt", for spiral phase modulated beam as "lgb.txt", 
+    for focused radial-azimuthal polarization beam as "rab.txt", for Bessel beam as "bsb.txt", for spiral phase modulated Bessel beam as "blg.txt".  
+    The samples of beam datafile are in the folder "beam_sample", please copy and use.
     
-Please see mfb_src/multi_fbeam.h for detail of functions. The samples of beam are in beam_sample folder, please copy and use. 
-I_example2.pdf is the visualization result of example2 outputs ( created by Gnuplot script file 'gscript.plt' ).
+4. type './example2.out'.   
+    This executable calculate electromagnetic field intensity distributions, outputs them to text files. 
+    The I_example2.png is the visualization result of intensity distributions,
+    created by Gnuplot script gscritp.plt ( converted eps to png by using ImageMagick).
+
+Please see mfb_src/multi_fbeam.h for detail of functions. 
+
+![intensity distributions](I_example2.png "intensity distributions (I_example2.png)")
+
+
+## Verification  
+
+The verification program is in the folder "verification". 
+This program show the verification results about focused plane wave. 
+The executable "fpw_verification.out" is created by 'make' command. 
+This is for a verification, not to demonstrate the use.
 
 
 ## System of units
@@ -38,10 +60,10 @@ Please see com_src/osu_mksa.h and com_src/osu_mksa.c for detail of conversions.
 
 ## Formulae for electromagnetic field
 Electromagnetic wave is assumed monochromatic wave. 
-The surroundings is assumed nonmagnetic.  
-The elementary formula is <img src="https://latex.codecogs.com/gif.latex?u(\mathbf{r},t)=u(\mathbf{r})\exp(-i{\omega}t)">.    
-The time related complex exponential is dropped form all subsequent expressions.  
-Z-axis is selected as optic axis.
+The surroundings is assumed nonmagnetic. 
+The elementary formula is <img src="https://latex.codecogs.com/gif.latex?u(\mathbf{r},t)=u(\mathbf{r})\exp(-i{\omega}t)">. 
+The time related complex exponential is dropped form all subsequent expressions. 
+The z-axis is selected as optic axis.
 
 - Plane wave  
 
