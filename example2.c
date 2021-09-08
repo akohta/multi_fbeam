@@ -14,7 +14,7 @@ int main()
   print_data_mfb(&bm); 
   setup_mfb(&bm);     
   
-  max=150;
+  max=200;
   rang=4.0*bm.lambda_0;
   dr=rang*2/(double)(max-1);
   
