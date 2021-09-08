@@ -1,0 +1,60 @@
+../example1.out 
+
+ "blg.txt" No.00 -- Bessel beam with spiral phase modulation --
+wave length of incident beam in vacuum      :           1.064
+refractive index of surrounding             :            1.33
+deflection angle                       [rad]:     0.698131701
+incident beam power per unit area           :           0.001
+x-component of polarization coefficient     :      1+      0i
+y-component of polarization coefficient     :      0+      0i
+x-component of translation vector           :               0
+y-component of translation vector           :               0
+z-component of translation vector           :               0
+rotation parameter theta               [rad]:               0
+rotation parameter phi                 [rad]:               0
+mode number for spiral phase modulation     :               2
+
+ "blg.txt" No.00 -- Bessel beam with spiral phase modulation, MKSA system --
+wave length of incident beam in vacuum   [m]:       1.064e-06
+refractive index of surrounding             :            1.33
+deflection angle                       [rad]:     0.698131701
+incident beam power per unit area    [W/m^2]:         1000000
+x-component of polarization coefficient     :      1+      0i
+y-component of polarization coefficient     :      0+      0i
+x-component of translation vector        [m]:               0
+y-component of translation vector        [m]:               0
+z-component of translation vector        [m]:               0
+rotation parameter theta               [rad]:               0
+rotation parameter phi                 [rad]:               0
+mode number for spiral phase modulation     :               2
+
+Electromagnetic field at r=( 2.5,-3, 10)
+Ex=-7.10091272609849e-03 +2.40683602257362e-02 I (=-4.35842381005067e+03 +1.47727648998105e+04 I (MKSA))
+Ey=-9.15270205149786e-04 +2.92571595098262e-03 I (=-5.61777845838499e+02 +1.79575648287313e+03 I (MKSA))
+Ez= 2.60721811893624e-03 -6.66106829467447e-04 I (= 1.60026773541416e+03 -4.08845450940136e+02 I (MKSA))
+Hx=-1.21730937284922e-03 +3.89120221480688e-03 I (=-1.98328753558353e+00 +6.33969722339222e+00 I (MKSA))
+Hy=-9.42833156780404e-03 +3.04540887925506e-02 I (=-1.53610026315723e+01 +4.96169799206016e+01 I (MKSA))
+Hz=-3.07261880280487e-03 -2.53965303556080e-03 I (=-5.00602945243017e+00 -4.13770100064653e+00 I (MKSA))
+Real electromagnetic field at r=( 2.5,-3, 10), t=0.1 
+Ex= 7.50283145669130e-03 (= 4.60511493733109e+03 (MKSA))
+Ey= 8.68762428860934e-04 (= 5.33232135258950e+02 (MKSA))
+Ez= 1.79479547426654e-03 (= 1.10161603598703e+03 (MKSA))
+Hx= 1.15545403038504e-03 (= 1.88251041806959e+00 (MKSA))
+Hy= 9.12511983781583e-03 (= 1.48669983479112e+01 (MKSA))
+Hz=-3.96633777100260e-03 (=-6.46211097901238e+00 (MKSA))
+
+Directional derivative of electromagnetic field at r=( 2.5,-3, 10)
+v=( 0.107084, 0.275436, 0.955336),|v|=1
+dEx/dv=-1.42901828598756e-01 -3.87362462386007e-02 I (=-8.77107994829281e+10 -2.37756728508708e+10 I (MKSA))
+dEy/dv=-1.73222203638813e-02 -4.63211651181435e-03 I (=-1.06320948572433e+10 -2.84311717025045e+09 I (MKSA))
+dEz/dv=-3.59753309066834e-03 +1.28761566745282e-02 I (=-2.20810682860329e+09 +7.90317385903725e+09 I (MKSA))
+dHx/dv=-2.30385530839621e-02 -6.16071496071308e-03 I (=-3.75353021905642e+07 -1.00372752107107e+07 I (MKSA))
+dHy/dv=-1.79994200358795e-01 -5.03677617659535e-02 I (=-2.93253516329525e+08 -8.20611065138241e+07 I (MKSA))
+dHz/dv= 2.75986931162969e-02 -1.46626915146297e-02 I (= 4.49648587916742e+07 -2.38890244071698e+07 I (MKSA))
+Directional derivative using central difference. h=1.064e-07
+dEx/dv=-1.42901829749434e-01 -3.87362470707565e-02 I
+dEy/dv=-1.73222205205639e-02 -4.63211655700243e-03 I
+dEz/dv=-3.59753318225709e-03 +1.28761570370328e-02 I
+dHx/dv=-2.30385532922023e-02 -6.16071501922362e-03 I
+dHy/dv=-1.79994201750119e-01 -5.03677628564075e-02 I
+dHz/dv= 2.75986932711305e-02 -1.46626916215488e-02 I
