@@ -23,7 +23,7 @@ This program also supports superposition of these beams. The analysis method use
     The samples of beam datafile are in the folder "beam_sample", please copy and use.
     
 4. type './example2.out'.   
-    This executable calculate electromagnetic field intensity distributions, outputs them to text files. 
+    This executable calculates electromagnetic field intensity distributions, outputs them to text files. 
     The I_example2.png is the visualization result of intensity distributions,
     created by Gnuplot script gscritp.plt ( converted eps to png by using ImageMagick).
 
