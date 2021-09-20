@@ -45,6 +45,13 @@ Please see mfb_src/multi_fbeam.h for detail of functions.
 ![xz Ex](xz_Ex.gif "instantaneous value of the E_x on y=0 plane (xz_Ex.gif)")![xy_Ex](xy_Ex.gif "instantaneous value of the E_x on z=0 plane (xy_Ex.gif)")  
 
 
+## Analysis sample 1 (in the folder analysis_sample1)  
+
+This is the analysis result of focused beam with spiral phase modulation. 
+![intensity distributions 1](analysis_sample1/I_example2.png "intensity distributions (analysis_sample2/I_example2.png)")
+![xz_Ex 1](analysis_sample1/xz_Ex.gif "instantaneous value of the E_x on y=0 plane (analysis_sample1/xz_Ex.gif)")![xy_Ex](analysis_sample1/xy_Ex.gif "instantaneous value of the E_x on z=0 plane (anaysis_sample1/xy_Ex.gif)")  
+
+
 ## Verification  
 
 The verification program is in the folder verification. 
