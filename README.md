@@ -36,6 +36,7 @@ This program also supports superposition of these beams. The analysis method use
    The color bar is output as color_bar.png in the same folder. 
    The range of color bar in each cross section is output to the info.txt file (xy_info.txt for z=0 plane).
    The xz_Ex.gif and the xy_Ex.gif are animated gifs that concatenate the png files created by using the shell script file gif_animation.sh.
+   This code is parallelized by using OpenMP. The number of threads is controlled by the environment variable OMP_NUM_THREADS.  
   
 
 Please see mfb_src/multi_fbeam.h for detail of functions. 
@@ -46,7 +47,7 @@ Please see mfb_src/multi_fbeam.h for detail of functions.
 
 ## Verification  
 
-The verification program is in the folder "verification". 
+The verification program is in the folder verification. 
 This program show the verification results about focused plane wave. 
 The executable "fpw_verification.out" is created by 'make' command. 
 This is for a verification, not to demonstrate the use.
