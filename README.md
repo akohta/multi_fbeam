@@ -2,14 +2,14 @@
 This is the electromagnetic field analysis program for focused beams.
 This program can analyze plane wave, focused plane wave, focused radial-azimuthal polarization beam.
 In additon, spiral phase modulated beam ( like a Laguerre Gaussian beam ) and Bessel beam can be analyzed. 
-This program also supports superposition of these beams. The analysis method used here based on Fourier optics.
+This program also supports superposition of these beams. The analysis method used here based on Fourier optics.  
 
 ![analysis model](analysis_model.png "analysis model")
 
 
 ## Usage of example code  
 
-1. type 'make' command to compile  
+1. type 'make' command to compile. libpng is required.  
    The executable example1.out, example2.out and example3.out are created. 
    The example1.out is the executable of source code example1.c, it shows a simplest example using "multi_fbeam". 
    The example2.out is the executable of source code example2.c, it shows a example of electromagnetic field intensity analysis.
@@ -37,9 +37,8 @@ This program also supports superposition of these beams. The analysis method use
    The range of color bar in each cross section is output to the info.txt file (xy_info.txt for z=0 plane).
    The xz_Ex.gif and the xy_Ex.gif are animated gifs that concatenate the png files created by using the shell script file gif_animation.sh.
    This code is parallelized by using OpenMP. The number of threads is controlled by the environment variable OMP_NUM_THREADS.  
-  
 
-Please see mfb_src/multi_fbeam.h for detail of functions. 
+Please see mfb_src/multi_fbeam.h for detail of functions.  
 
 ![intensity distributions](I_example2.png "intensity distributions (I_example2.png)")
 ![xz Ex](xz_Ex.gif "instantaneous value of the E_x on y=0 plane (xz_Ex.gif)")![xy_Ex](xy_Ex.gif "instantaneous value of the E_x on z=0 plane (xy_Ex.gif)")  
@@ -248,5 +247,9 @@ The z-axis is selected as optic axis.
   
   
 
+## References  
 
+1. The command-line driven graphing utility [gnuplot](http://www.gnuplot.info/)  
+2. The utilities for manipulating images [ImageMagick](https://imagemagick.org/)  
+3. The official PNG reference library [libpng](http://www.libpng.org/pub/png/libpng.html)  
   
