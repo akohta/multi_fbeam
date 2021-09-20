@@ -31,13 +31,13 @@ This program also supports superposition of these beams. The analysis method use
 
 5. type './example3.out'.  
    This executable calculates instantaneous value of the electromagnetic fields, outputs them to png image files.
+   This code is parallelized by using OpenMP. The number of threads is controlled by the environment variable OMP_NUM_THREADS.  
    The image files are output to the folder "images" that is automatically created at runtime.
    Each image file has a name that indicates the cross section, field component, and number of time steps (ex. xz_Ex_014.png). 
    The color bar is output as color_bar.png in the same folder. 
    The range of color bar in each cross section is output to the info.txt file (xy_info.txt for z=0 plane).
-   The xz_Ex.gif and the xy_Ex.gif are animated gifs that concatenate the png files created by using the shell script file gif_animation.sh.
-   This code is parallelized by using OpenMP. The number of threads is controlled by the environment variable OMP_NUM_THREADS.  
-
+   The xz_Ex.gif and the xy_Ex.gif are animated gifs that concatenate the png files created by using the shell script file gif_animation.sh. 
+   
 Please see mfb_src/multi_fbeam.h for detail of functions.  
 
 ![intensity distributions](I_example2.png "intensity distributions (I_example2.png)")
