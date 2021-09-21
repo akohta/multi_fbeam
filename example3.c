@@ -408,9 +408,9 @@ int color_rgb(double x,png_byte *r,png_byte *g,png_byte *b) // -1 <= x <= 1
   dr=(double)(ct1[i][0]-ct1[i-1][0])*i_nc;
   dg=(double)(ct1[i][1]-ct1[i-1][1])*i_nc;
   db=(double)(ct1[i][2]-ct1[i-1][2])*i_nc;
-  *r=(int)floor((double)ct1[i-1][0]+dr*(double)nd);
-  *g=(int)floor((double)ct1[i-1][1]+dg*(double)nd);
-  *b=(int)floor((double)ct1[i-1][2]+db*(double)nd);
+  *r=(png_byte)floor((double)ct1[i-1][0]+dr*(double)nd);
+  *g=(png_byte)floor((double)ct1[i-1][1]+dg*(double)nd);
+  *b=(png_byte)floor((double)ct1[i-1][2]+db*(double)nd);
   
   return 0;  
 }

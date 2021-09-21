@@ -1,6 +1,6 @@
 CC      =gcc
 CFLAGS  =-O3 -Wall
-LDFLAGS =-lm
+LDFLAGS =-lm -lpng -lz
 MPFLAGS =-fopenmp
 MP_LD   =-lgomp
 SRCDIR1 =mfb_src
@@ -36,7 +36,7 @@ $(TARGET2) : $(TRGOBJ2)
 	$(CC) $(LDFLAGS) -o $@ $^
 
 $(TARGET3) : $(TRGOBJ3)  
-	$(CC) $(LDFLAGS) -lpng $(MP_LD) -o $@ $^
+	$(CC) $(LDFLAGS) $(MP_LD) -o $@ $^
 
 $(OBJDIR)/%.o : $(SRCDIR1)/%.c
 	$(CC) $(CFLAGS) -I $(SRCDIR2) -c $< -o $@
