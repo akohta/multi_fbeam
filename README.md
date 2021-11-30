@@ -21,7 +21,7 @@ This program also supports superposition of these beams. The analysis method use
    The "fpw.txt" is the sample of focused plane wave datafile. 
    This program searches for a beam datafile in current directory using the default beam datafile name and reads the found file. 
    The default beam datafile name is defined for plane wave as "ipw.txt", for focused plane wave as "fpw.txt", for spiral phase modulated beam as "lgb.txt", 
-   for focused radial-azimuthal polarization beam as "rab.txt", for Bessel beam as "bsb.txt", for spiral phase modulated Bessel beam as "blg.txt".  
+   for focused radial-azimuthal polarization beam as "rab.txt", for Bessel beam as "bsb.txt", for spiral phase modulated Bessel beam as "blg.txt". 
    The samples of beam datafile are in the folder beam_sample, please copy and use.  
     
 4. type './example2.out'.   
@@ -31,14 +31,17 @@ This program also supports superposition of these beams. The analysis method use
 
 5. type './example3.out'.  
    This executable calculates instantaneous value of the electromagnetic fields, outputs them to png image files.
-   This code is parallelized by using OpenMP. The number of threads is controlled by the environment variable OMP_NUM_THREADS.  
    The image files are output to the folder "images" that is automatically created at runtime.
-   Each image file has a name that indicates the cross section, field component, and number of time steps (ex. xz_Ex_014.png). 
+   Each image file has a name that indicates the cross section, field component and number of time steps (ex. xz_Ex_014.png). 
    The color bar is output as color_bar.png in the same folder. 
    The range of color bar in each cross section is output to the info.txt file (xy_info.txt for z=0 plane).
    The xz_Ex.gif and the xy_Ex.gif are animated gifs that concatenate the png files created by using the shell script file gif_animation.sh. 
    
-Please see mfb_src/multi_fbeam.h for detail of functions.  
+Please see mfb_src/multi_fbeam.h for detail of functions. 
+The example2.out and example3.out are parallelized by using OpenMP. 
+The number of threads is controlled by the environment variable OMP_NUM_THREADS. 
+The file named make_icx is the makefile for intel compiler. 
+For this code, Intel compiler is about twice faster than gcc (using gcc version 9.3.0, icx version 2021.4.0). 
 
 ![intensity distributions](I_example2.png "intensity distributions (I_example2.png)")
 ![xz Ex](xz_Ex.gif "instantaneous value of the E_x on y=0 plane (xz_Ex.gif)")![xy_Ex](xy_Ex.gif "instantaneous value of the E_x on z=0 plane (xy_Ex.gif)")  
