@@ -1,7 +1,8 @@
-CC      =gcc
-CFLAGS  =-O3 -Wall
-LDFLAGS =-lpng -lz -lm
-MPFLAGS =-fopenmp
+# makefile for intel compiler (icx)
+CC      =icx
+CFLAGS  =-fast -Wall
+LDFLAGS =-lpng -lz
+MPFLAGS =-fiopenmp
 SRCDIR1 =mfb_src
 SRCDIR2 =com_src
 OBJDIR =obj
