@@ -22,7 +22,7 @@ directories:
 	@mkdir -p $(OBJDIR)
 
 $(TARGET1) : $(TRGOBJ1)  
-	$(CC) $(LDFLAGS) -o $@ $^
+	$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS)
 
 $(OBJDIR)/%.o : $(SRCDIR1)/%.c
 	$(CC) $(CFLAGS) -I $(SRCDIR2) -c $< -o $@
