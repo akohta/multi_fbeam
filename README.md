@@ -1,6 +1,6 @@
 # multi_fbeam
 This is the electromagnetic field analysis program for focused beams.
-This program can analyze plane wave, focused plane wave, focused radial-azimuthal polarization beam.
+This program can analyze plane wave, focused plane wave, focused radial-azimuthal polarization beam, focused Gaussian beam.
 In additon, spiral phase modulated beam ( like a Laguerre Gaussian beam ) and Bessel beam can be analyzed. 
 This program also supports superposition of these beams. The analysis method used here based on Fourier optics.  
 
@@ -20,22 +20,25 @@ This program also supports superposition of these beams. The analysis method use
    This executable calculates electromagnetic field. The beam datafile "fpw.txt" is used. 
    The "fpw.txt" is the sample of focused plane wave datafile. 
    This program searches for a beam datafile in current directory using the default beam datafile name and reads the found file. 
-   The default beam datafile name is defined for plane wave as "ipw.txt", for focused plane wave as "fpw.txt", for spiral phase modulated beam as "lgb.txt", 
-   for focused radial-azimuthal polarization beam as "rab.txt", for Bessel beam as "bsb.txt", for spiral phase modulated Bessel beam as "blg.txt". 
+   The default beam datafile name is defined for plane wave as "ipw.txt", 
+   for focused plane wave as "fpw.txt", for spiral phase modulated beam as "lgb.txt", 
+   for focused radial-azimuthal polarization beam as "rab.txt", 
+   for Bessel beam as "bsb.txt", for spiral phase modulated Bessel beam as "blg.txt",
+   for focused Gaussian beam as "fgb.txt". 
    The samples of beam datafile are in the folder beam_sample, please copy and use.  
     
 4. type './example2.out'.   
    This executable calculates electromagnetic field intensity distributions, outputs them to text files. 
    The I_example2.png is the visualization result of intensity distributions,
-   created by Gnuplot script gscritp.plt (converted eps to png by using ImageMagick).  
+   created by Gnuplot script "gscritp.plt" (converted eps to png by using ImageMagick).  
 
 5. type './example3.out'.  
    This executable calculates instantaneous value of the electromagnetic fields, outputs them to png image files.
    The image files are output to the folder "images" that is automatically created at runtime.
    Each image file has a name that indicates the cross section, field component and number of time steps (ex. xz_Ex_014.png). 
-   The color bar is output as color_bar.png in the same folder. 
-   The range of color bar in each cross section is output to the info.txt file (xy_info.txt for z=0 plane).
-   The xz_Ex.gif and the xy_Ex.gif are animated gifs that concatenate the png files created by using the shell script file gif_animation.sh. 
+   The color bar is output as "color_bar.png" in the same folder. 
+   The range of color bar in each cross section is output to the info.txt file (xy_info.txt for x-y plane).
+   The xz_Ex.gif and the xy_Ex.gif are animated gifs that concatenate the png files created by using the shell script file "gif_animation.sh". 
    
 Please see mfb_src/multi_fbeam.h for detail of functions. 
 The example2.out and example3.out are parallelized by using OpenMP. 
@@ -57,86 +60,128 @@ This is the analysis result of focused beam with spiral phase modulation.
 ## Verification  
 
 The verification program is in the folder verification. 
-This program show the verification results about focused plane wave. 
-The executable "fpw_verification.out" is created by 'make' command. 
-This is for a verification, not to demonstrate the use.
+This program show the verification results about focused plane wave and focused Gaussian beam. 
+The executable "fpw_verification.out" and "fgb_verification.out" are created by 'make' command. 
 
 
 ## System of units
 
 This program use the own defined system of units (OSU), optimized for optics. 
-The system of units is defined as <img src="https://latex.codecogs.com/gif.latex?c_0=1"> ( speed of light in vacuum ), 
-<img src="https://latex.codecogs.com/gif.latex?\mu_0=1"> ( permeability of vacuum ). 
+The system of units is defined as $c_0=1$ ( speed of light in vacuum ), $\mu_0=1$ ( permeability of vacuum ). 
 For the conversion from OSU to MKSA system of units, the unit of length in OSU is defined as 
-<img src="https://latex.codecogs.com/gif.latex?1\times10^{-6}"> [m] in MKSA, the unit of power in OSU is defined as
-<img src="https://latex.codecogs.com/gif.latex?1\times10^{-3}"> [W] in MKSA. The conversions of base unit are follows.  
-<img src="https://latex.codecogs.com/gif.latex?a=1\times10^{-6}">,  
-<img src="https://latex.codecogs.com/gif.latex?b=1\times10^{-3}">,  
-<img src="https://latex.codecogs.com/gif.latex?a\,\mathrm{[m]}=1\,\mathrm{[L]}">,  
-<img src="https://latex.codecogs.com/gif.latex?\frac{ab}{c_0^3}\,\mathrm{[kg]}=1\,\mathrm{[M]}">,  
-<img src="https://latex.codecogs.com/gif.latex?\frac{a}{c_0}\,\mathrm{[s]}=1\,\mathrm{[T]}">,  
-<img src="https://latex.codecogs.com/gif.latex?\sqrt{\frac{b}{c_0\mu_0}}\,\mathrm{[A]}=1\,\mathrm{[I]}">.  
+$1\times10^{-6}$ [m] in MKSA, the unit of power in OSU is defined as $1\times10^{-3}$ [W] in MKSA. 
+The conversions of base unit are follows.
+
+$$
+\begin{eqnarray}
+a &=& 1\times10^{-6},\\
+b &=& 1\times10^{-3}.
+\end{eqnarray}
+$$
+
+$$
+\begin{eqnarray}
+a \\,\mathrm{[m]} &=& 1 \\,\mathrm{[L]},\\
+\frac{ab}{c_0^3} \\,\mathrm{[kg]} &=& 1 \\,\mathrm{[M]},\\
+\frac{a}{c_0} \\,\mathrm{[s]} &=& 1 \\,\mathrm{[T]},\\
+\sqrt{\frac{b}{c_0\mu_0}} \\,\mathrm{[A]} &=& 1 \\,\mathrm{[I]}.
+\end{eqnarray}
+$$
+
 Please see com_src/osu_mksa.h and com_src/osu_mksa.c for detail of conversions.
 
 
 
 ## Formulae for electromagnetic field
-Electromagnetic wave is assumed monochromatic wave. 
-The surroundings is assumed nonmagnetic. 
-The elementary formula is <img src="https://latex.codecogs.com/gif.latex?u(\mathbf{r},t)=u(\mathbf{r})\exp(-i{\omega}t)">. 
+Electromagnetic wave is assumed monochromatic wave. The surroundings is assumed nonmagnetic. 
+The elementary formula is $u(\mathbf{r},t)=u(\mathbf{r})\exp(-i{\omega}t)$. 
 The time related complex exponential is dropped form all subsequent expressions. 
 The z-axis is selected as optic axis.
 
 - Plane wave  
 
-  <img src="https://latex.codecogs.com/gif.latex?\mathbf{E}(x,y,z)=E_0\mathbf{e}_0\exp(ik_zz)">,  
-  <img src="https://latex.codecogs.com/gif.latex?\mathbf{H}(x,y,z)=H_0\mathbf{h}_0\exp(ik_zz)">,  
-  <img src="https://latex.codecogs.com/gif.latex?E_0=\sqrt{2ZS}">,  
-  <img src="https://latex.codecogs.com/gif.latex?H_0=\frac{E_0}{Z}">,  
-  <img src="https://latex.codecogs.com/gif.latex?\mathbf{h}_0=\left(-e_{0y},e_{0x},0\right)">.
+  $$
+  \begin{eqnarray}
+  \mathbf{E}(x,y,z) &=& E_0 \mathbf{e}_0 \exp(ik_zz),\\
+  \mathbf{H}(x,y,z) &=& H_0 \mathbf{h}_0 \exp(ik_zz),\\
+  E_0 &=& \sqrt{2ZS},\\
+  H_0 &=& \frac{E_0}{Z},\\
+  \mathbf{h}_0 &=& \left( -e_{0y}, e_{0x}, 0 \right).
+  \end{eqnarray}
+  $$
+   
+  $E_0$ is a power coefficient. $Z$ is a wave impedance. $S$ is a power per unit square metre. 
+  $\mathbf{e}_0$ is a polarization coefficient include initial phase, $|\mathbf{e}_0|=1$. For example 
   
-  <img src="https://latex.codecogs.com/gif.latex?E_0"> is a power coefficient.
-  <img src="https://latex.codecogs.com/gif.latex?Z"> is a wave impedance.
-  <img src="https://latex.codecogs.com/gif.latex?S"> is a power per unit square metre.  
-  <img src="https://latex.codecogs.com/gif.latex?\mathbf{e}_0"> is a polarization coefficient include initial phase,
-  <img src="https://latex.codecogs.com/gif.latex?|\mathbf{e}_0|=1">. For example   
-  <img src="https://latex.codecogs.com/gif.latex?\mathbf{e}_0=(1,0,0)"> for x polarization,
-  <img src="https://latex.codecogs.com/gif.latex?\mathbf{e}_0=(0,1,0)"> for y polarization,
-  <img src="https://latex.codecogs.com/gif.latex?\mathbf{e}_0=\left(\frac{1}{\sqrt{2}},\pm\frac{i}{\sqrt{2}},0\right)"> for circular polarization.  
+  $$
+  \begin{eqnarray}
+  \mathbf{e}_0 &=& (1,0,0), \\, \text{for x polarization}. \\
+  \mathbf{e}_0 &=& (0,1,0), \\, \text{for y polarization}. \\
+  \mathbf{e}_0 &=& \left( \frac{1}{\sqrt{2}}, \pm\frac{i}{\sqrt{2}}, 0 \right), \\, \text{for circular polarization}. 
+  \end{eqnarray}
+  $$
 
 
 - Focused plane wave  
 
-  <img src="https://latex.codecogs.com/gif.latex?\mathbf{E}(x,y,z)=E_0\int\!\!\!\int_{\Omega}\mathbf{e}(\theta,\phi)\exp\left(ik(x\sin\theta\cos\phi+y\sin\theta\sin\phi+z\cos\theta)\right)\sin\theta\,d(\sin\theta)d\phi">,  
-  <img src="https://latex.codecogs.com/gif.latex?\Omega=\left\{(\sin\theta,\phi):0\le\sin\theta\le\frac{\mathrm{NA}}{n},-\pi<\phi\le\pi\right\}">,  
-  <img src="https://latex.codecogs.com/gif.latex?e_{x}(\theta,\phi)=e_{px}(\sin^2\phi+\cos\theta\cos^2\phi)+e_{py}\sin\phi\cos\phi(\cos\theta-1)">,  
-  <img src="https://latex.codecogs.com/gif.latex?e_{y}(\theta,\phi)=e_{px}(\sin\phi\cos\phi(\cos\theta-1)+e_{py}(\cos\theta\sin^2\phi+\cos^2\phi)">,  
-  <img src="https://latex.codecogs.com/gif.latex?e_{z}(\theta,\phi)=-e_{px}\sin\theta\cos\phi-e_{py}\sin\theta\sin\phi">,  
-  <img src="https://latex.codecogs.com/gif.latex?E_0=\sqrt{2ZP}\frac{1}{\lambda}">,  
-  <img src="https://latex.codecogs.com/gif.latex?\mathbf{e}_p=\sqrt{\frac{1}{\pi}}\frac{n}{\mathrm{NA}}\mathbf{p}_f">.  
-  <img src="https://latex.codecogs.com/gif.latex?P"> is a power passing through the plane orthogonal to z-axis, or passing through the pupil plane.
-  <img src="https://latex.codecogs.com/gif.latex?\lambda"> is a wavelength.  
-  <img src="https://latex.codecogs.com/gif.latex?\mathbf{e}_p"> is a normalized coefficient,
-  <img src="https://latex.codecogs.com/gif.latex?\mathrm{NA}"> is a numerical aperture, 
-  <img src="https://latex.codecogs.com/gif.latex?n"> is a refractive index of surroundings, 
-  <img src="https://latex.codecogs.com/gif.latex?\mathbf{p}_f"> is a polarization coefficient incluse initial phase, same as
-  <img src="https://latex.codecogs.com/gif.latex?\mathbf{e}_0">.  
+  $$
+  \begin{eqnarray}
+  \mathbf{E}(x,y,z) &=& E_0 \int \\!\\!\\!\int_{\Omega} 
+   \mathbf{e}(\theta,\phi)\exp\left(ik(x\sin\theta\cos\phi+y\sin\theta\sin\phi+z\cos\theta)\right)\sin\theta \\, d(\sin\theta)d\phi, \\
+  \Omega &=& \left\\{(\sin\theta,\phi):0\le\sin\theta\le\frac{\mathrm{NA}}{n},-\pi<\phi\le\pi\right\\}, \\
+  e_{x}(\theta,\phi) &=& e_{px}(\sin^2\phi+\cos\theta\cos^2\phi)+e_{py}\sin\phi\cos\phi(\cos\theta-1), \\
+  e_{y}(\theta,\phi) &=& e_{px}(\sin\phi\cos\phi(\cos\theta-1)+e_{py}(\cos\theta\sin^2\phi+\cos^2\phi), \\
+  e_{z}(\theta,\phi) &=&-e_{px}\sin\theta\cos\phi-e_{py}\sin\theta\sin\phi, \\
+  E_0 &=& \sqrt{2ZP}\frac{1}{\lambda}, \\
+  \mathbf{e}_p &=& \sqrt{\frac{1}{\pi}}\frac{n}{\mathrm{NA}}\mathbf{p}_f.
+  \end{eqnarray}
+  $$
   
-  <img src="https://latex.codecogs.com/gif.latex?\mathbf{H}(x,y,z)=H_0\int\!\!\!\int_{\Omega}\mathbf{h}(\theta,\phi)\exp\left(ik(x\sin\theta\cos\phi+y\sin\theta\sin\phi+z\cos\theta)\right)\sin\theta\,d(\sin\theta)d\phi">,  
-  <img src="https://latex.codecogs.com/gif.latex?h_x(\theta,\phi)=e_{px}\sin\phi\cos\phi(\cos\theta-1)-e_{py}(\sin^2\phi+\cos\theta\cos^2\phi)">,  
-  <img src="https://latex.codecogs.com/gif.latex?h_y(\theta,\phi)=e_{px}(\cos\theta\sin^2\phi+\cos^2\phi)-e_{py}\sin\phi\cos\phi(\cos\theta-1)">,  
-  <img src="https://latex.codecogs.com/gif.latex?h_z(\theta,\phi)=-e_{px}\sin\theta\sin\phi+e_{py}\sin\theta\cos\phi">,  
-  <img src="https://latex.codecogs.com/gif.latex?H_0=\frac{E_0}{Z}">.  
+  $P$ is a power passing through the plane orthogonal to z-axis, or passing through the pupil plane. $\lambda$ is a wavelength.
+  $\mathbf{e}_p$ is a normalized coefficient, $\mathrm{NA}$ is a numerical aperture, $n$ is a refractive index of surroundings, 
+  $\mathbf{p}_f$ is a polarization coefficient incluse initial phase, same as $\mathbf{e}_0$ in plane wave.  
+  
+  $$
+  \begin{eqnarray}
+  \mathbf{H}(x,y,z) &=& H_0 \int\\!\\!\\! \int_{\Omega}
+   \mathbf{h}(\theta,\phi)\exp\left(ik(x\sin\theta\cos\phi+y\sin\theta\sin\phi+z\cos\theta)\right)\sin\theta \\, d(\sin\theta)d\phi,\\
+  h_x(\theta,\phi) &=& e_{px}\sin\phi\cos\phi(\cos\theta-1)-e_{py}(\sin^2\phi+\cos\theta\cos^2\phi),\\
+  h_y(\theta,\phi) &=& e_{px}(\cos\theta\sin^2\phi+\cos^2\phi)-e_{py}\sin\phi\cos\phi(\cos\theta-1),\\
+  h_z(\theta,\phi) &=&-e_{px}\sin\theta\sin\phi+e_{py}\sin\theta\cos\phi,\\
+  H_0 &=& \frac{E_0}{Z}.
+  \end{eqnarray}
+  $$
+  
   
 - Focused plane wave with spiral phase modulation
 
-  <img src="https://latex.codecogs.com/gif.latex?\mathbf{E}(x,y,z)=E_0\int\!\!\!\int_{\Omega}\mathbf{e}(\theta,\phi)\exp\left(ik(x\sin\theta\cos\phi+y\sin\theta\sin\phi+z\cos\theta)+im\phi\right)\sin\theta\,d(\sin\theta)d\phi">,  
-  <img src="https://latex.codecogs.com/gif.latex?\mathbf{H}(x,y,z)=H_0\int\!\!\!\int_{\Omega}\mathbf{h}(\theta,\phi)\exp\left(ik(x\sin\theta\cos\phi+y\sin\theta\sin\phi+z\cos\theta)+im\phi\right)\sin\theta\,d(\sin\theta)d\phi">,  
-  <img src="https://latex.codecogs.com/gif.latex?m"> is a mode number, must be integer ( m=0 is focused plane wave ).  
-  Others are the same as focused plane wave.
+  $$
+  \begin{eqnarray}
+  \mathbf{E}(x,y,z) &=& E_0 \int \\!\\!\\! \int_{\Omega}
+   \mathbf{e}(\theta,\phi)\exp\left(ik(x\sin\theta\cos\phi+y\sin\theta\sin\phi+z\cos\theta)+im\phi\right)\sin\theta \\, d(\sin\theta)d\phi,\\
+  \mathbf{H}(x,y,z) &=& H_0 \int \\!\\!\\! \int_{\Omega}
+   \mathbf{h}(\theta,\phi)\exp\left(ik(x\sin\theta\cos\phi+y\sin\theta\sin\phi+z\cos\theta)+im\phi\right)\sin\theta \\, d(\sin\theta)d\phi.
+  \end{eqnarray}
+  $$
+  
+  $m$ is a mode number, must be integer ( m=0 is focused plane wave ). Others are the same as focused plane wave.
+
 
 - Focused radial-azimuthal polarization beam  
 
+  $$
+  \begin{eqnarray}
+  \mathbf{E}(x,y,z) &=& E_0 \int \\!\\!\\! \int_{\Omega}
+   \mathbf{e}(\theta,\phi)\exp\left(ik(x\sin\theta\cos\phi+y\sin\theta\sin\phi+z\cos\theta)\right)\sin\theta \\, d(\sin\theta)d\phi,\\
+  \Omega &=& \left\\{ (\sin\theta,\phi) : 0\le\sin\theta\le\frac{\mathrm{NA}}{n},-\pi<\phi\le\pi \right\\},\\
+  e_x(\theta,\phi) &=& e_{vr}\cos\theta\cos\phi-e_{va}\sin\phi,\\
+  e_y(\theta,\phi) &=& e_{vr}\cos\theta\sin\phi+e_{va}\cos\phi,\\
+  e_z(\theta,\phi) &=&-e_{vr}\sin\theta,\\
+  E_0 &=& \sqrt{2ZP}\frac{1}{\lambda},\\
+  \mathbf{e}_v &=& (e_{vr},e_{va}) = \sqrt{\frac{1}{\pi}}\frac{n}{\mathrm{NA}}\mathbf{p}_v.
+  \end{eqnarray}
+  $$
+  
   <img src="https://latex.codecogs.com/gif.latex?\mathbf{E}(x,y,z)=E_0\int\!\!\!\int_{\Omega}\mathbf{e}(\theta,\phi)\exp\left(ik(x\sin\theta\cos\phi+y\sin\theta\sin\phi+z\cos\theta)\right)\sin\theta\,d(\sin\theta)d\phi">,  
   <img src="https://latex.codecogs.com/gif.latex?\Omega=\left\{(\sin\theta,\phi):0\le\sin\theta\le\frac{\mathrm{NA}}{n},-\pi<\phi\le\pi\right\}">,  
   <img src="https://latex.codecogs.com/gif.latex?e_x(\theta,\phi)=e_{vr}\cos\theta\cos\phi-e_{va}\sin\phi">,  
