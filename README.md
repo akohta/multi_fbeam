@@ -102,22 +102,22 @@ The z-axis is selected as optic axis.
 
   $$
   \begin{eqnarray}
-  \mathbf{E}(x,y,z) &=& E_0 \mathbf{e}_0 \exp(ik_zz),\\
-  \mathbf{H}(x,y,z) &=& H_0 \mathbf{h}_0 \exp(ik_zz),\\
+  \mathbf{E}(x,y,z) &=& E_0 \mathbf{e}\_0 \exp(ik_zz),\\
+  \mathbf{H}(x,y,z) &=& H_0 \mathbf{h}\_0 \exp(ik_zz),\\
   E_0 &=& \sqrt{2ZS},\\
   H_0 &=& \frac{E_0}{Z},\\
-  \mathbf{h}_0 &=& \left( -e_{0y}, e_{0x}, 0 \right).
+  \mathbf{h}\_0 &=& \left( -e_{0y}, e_{0x}, 0 \right).
   \end{eqnarray}
   $$
    
   $E_0$ is a power coefficient. $Z$ is a wave impedance. $S$ is a power per unit square metre. 
-  $\mathbf{e}_0$ is a polarization coefficient include initial phase, $|\mathbf{e}_0|=1$. For example 
+  $\mathbf{e}\_0$ is a polarization coefficient include initial phase, $|\mathbf{e}\_0|=1$. For example 
   
   $$
   \begin{eqnarray}
-  \mathbf{e}_0 &=& (1,0,0), \\, \text{for x polarization}. \\
-  \mathbf{e}_0 &=& (0,1,0), \\, \text{for y polarization}. \\
-  \mathbf{e}_0 &=& \left( \frac{1}{\sqrt{2}}, \pm\frac{i}{\sqrt{2}}, 0 \right), \\, \text{for circular polarization}. 
+  \mathbf{e}\_0 &=& (1,0,0), \\, \text{for x polarization}. \\
+  \mathbf{e}\_0 &=& (0,1,0), \\, \text{for y polarization}. \\
+  \mathbf{e}\_0 &=& \left( \frac{1}{\sqrt{2}}, \pm\frac{i}{\sqrt{2}}, 0 \right), \\, \text{for circular polarization}. 
   \end{eqnarray}
   $$
 
@@ -133,13 +133,9 @@ The z-axis is selected as optic axis.
   e_{y}(\theta,\phi) &=& e_{px}(\sin\phi\cos\phi(\cos\theta-1)+e_{py}(\cos\theta\sin^2\phi+\cos^2\phi), \\
   e_{z}(\theta,\phi) &=&-e_{px}\sin\theta\cos\phi-e_{py}\sin\theta\sin\phi, \\
   E_0 &=& \sqrt{2ZP}\frac{1}{\lambda}, \\
-  \mathbf{e}_p &=& \sqrt{\frac{1}{\pi}}\frac{n}{\mathrm{NA}}\mathbf{p}_f.
+  \mathbf{e}\_p &=& \sqrt{\frac{1}{\pi}}\frac{n}{\mathrm{NA}}\mathbf{p}\_f.
   \end{eqnarray}
   $$
-  
-  $P$ is a power passing through the plane orthogonal to z-axis, or passing through the pupil plane. $\lambda$ is a wavelength.
-  $\mathbf{e}_p$ is a normalized coefficient, $\mathrm{NA}$ is a numerical aperture, $n$ is a refractive index of surroundings, 
-  $\mathbf{p}_f$ is a polarization coefficient incluse initial phase, same as $\mathbf{e}_0$ in plane wave.  
   
   $$
   \begin{eqnarray}
@@ -151,6 +147,11 @@ The z-axis is selected as optic axis.
   H_0 &=& \frac{E_0}{Z}.
   \end{eqnarray}
   $$
+  
+  $P$ is a power passing through the plane orthogonal to z-axis, or passing through the pupil plane. $\lambda$ is a wavelength.
+  $\mathbf{e}\_p$ is a normalized coefficient, $\mathrm{NA}$ is a numerical aperture, $n$ is a refractive index of surroundings, 
+  $\mathbf{p}\_f$ is a polarization coefficient incluse initial phase, same as $\mathbf{e}\_0$ in plane wave.  
+  
   
   
 - Focused plane wave with spiral phase modulation
@@ -164,7 +165,7 @@ The z-axis is selected as optic axis.
   \end{eqnarray}
   $$
   
-  $m$ is a mode number, must be integer ( m=0 is focused plane wave ). Others are the same as focused plane wave.
+  $m$ is a mode number, must be integer ( $m=0$ is focused plane wave ). Others are the same as focused plane wave.
 
 
 - Focused radial-azimuthal polarization beam  
@@ -178,120 +179,205 @@ The z-axis is selected as optic axis.
   e_y(\theta,\phi) &=& e_{vr}\cos\theta\sin\phi+e_{va}\cos\phi,\\
   e_z(\theta,\phi) &=&-e_{vr}\sin\theta,\\
   E_0 &=& \sqrt{2ZP}\frac{1}{\lambda},\\
-  \mathbf{e}_v &=& (e_{vr},e_{va}) = \sqrt{\frac{1}{\pi}}\frac{n}{\mathrm{NA}}\mathbf{p}_v.
+  \mathbf{e}\_v &=& (e_{vr},e_{va}) = \sqrt{\frac{1}{\pi}}\frac{n}{\mathrm{NA}}\mathbf{p}\_v.
   \end{eqnarray}
   $$
   
-  <img src="https://latex.codecogs.com/gif.latex?\mathbf{E}(x,y,z)=E_0\int\!\!\!\int_{\Omega}\mathbf{e}(\theta,\phi)\exp\left(ik(x\sin\theta\cos\phi+y\sin\theta\sin\phi+z\cos\theta)\right)\sin\theta\,d(\sin\theta)d\phi">,  
-  <img src="https://latex.codecogs.com/gif.latex?\Omega=\left\{(\sin\theta,\phi):0\le\sin\theta\le\frac{\mathrm{NA}}{n},-\pi<\phi\le\pi\right\}">,  
-  <img src="https://latex.codecogs.com/gif.latex?e_x(\theta,\phi)=e_{vr}\cos\theta\cos\phi-e_{va}\sin\phi">,  
-  <img src="https://latex.codecogs.com/gif.latex?e_y(\theta,\phi)=e_{vr}\cos\theta\sin\phi+e_{va}\cos\phi">,  
-  <img src="https://latex.codecogs.com/gif.latex?e_z(\theta,\phi)=-e_{vr}\sin\theta">,  
-  <img src="https://latex.codecogs.com/gif.latex?E_0=\sqrt{2ZP}\frac{1}{\lambda}">,  
-  <img src="https://latex.codecogs.com/gif.latex?\mathbf{e}_v=(e_{vr},e_{va})=\sqrt{\frac{1}{\pi}}\frac{n}{\mathrm{NA}}\mathbf{p}_v">.  
-  <img src="https://latex.codecogs.com/gif.latex?\mathbf{p}_v"> is a polarization coefficient, 
-  <img src="https://latex.codecogs.com/gif.latex?|\mathbf{p}_v|=1">. For example  
-  <img src="https://latex.codecogs.com/gif.latex?\mathbf{p}_v=(1,0)"> for radial-polarization, 
-  <img src="https://latex.codecogs.com/gif.latex?\mathbf{p}_v=(0,1)"> for azimuthal-polarization, 
-  <img src="https://latex.codecogs.com/gif.latex?\mathbf{p}_v=\left(\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}}\right)"> for combined-polarization.  
+  $$
+  \begin{eqnarray}
+  \mathbf{H}(x,y,z) &=& H_0 \int \\!\\!\\! \int_{\Omega}
+   \mathbf{h}(\theta,\phi)\exp\left(ik(x\sin\theta\cos\phi+y\sin\theta\sin\phi+z\cos\theta)\right)\sin\theta \\, d(\sin\theta)d\phi,\\
+  h_x(\theta,\phi) &=&-e_{va}\cos\theta\cos\phi-e_{vr}\sin\phi,\\
+  h_y(\theta,\phi) &=&-e_{va}\cos\theta\sin\phi+e_{vr}\cos\phi,\\
+  h_z(\theta,\phi) &=& e_{va}\sin\theta,\\
+  H_0 &=& \frac{E_0}{Z}.
+  \end{eqnarray}
+  $$
   
-  <img src="https://latex.codecogs.com/gif.latex?\mathbf{H}(x,y,z)=H_0\int\!\!\!\int_{\Omega}\mathbf{h}(\theta,\phi)\exp\left(ik(x\sin\theta\cos\phi+y\sin\theta\sin\phi+z\cos\theta)\right)\sin\theta\,d(\sin\theta)d\phi">,  
-  <img src="https://latex.codecogs.com/gif.latex?h_x(\theta,\phi)=-e_{va}\cos\theta\cos\phi-e_{vr}\sin\phi">,   
-  <img src="https://latex.codecogs.com/gif.latex?h_y(\theta,\phi)=-e_{va}\cos\theta\sin\phi+e_{vr}\cos\phi">,   
-  <img src="https://latex.codecogs.com/gif.latex?h_z(\theta,\phi)=e_{va}\sin\theta">,  
-  <img src="https://latex.codecogs.com/gif.latex?H_0=\frac{E_0}{Z}">.  
+  $\mathbf{p}\_v$ is a polarization coefficient, $|\mathbf{p}\_v|=1$. For example
+  
+  $$
+  \begin{eqnarray}
+  \mathbf{p}\_v &=& (1,0), \\, \text{for radial-polarization},\\
+  \mathbf{p}\_v &=& (0,1), \\, \text{for azimuthal-polarization},\\
+  \mathbf{p}\_v &=& \left( \frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}} \right), \\, \text{for combined-polarization}.
+  \end{eqnarray}
+  $$
+  
+  
 
 - Bessel beam  
 
-  <img src="https://latex.codecogs.com/gif.latex?\mathbf{E}(x,y,z)=E_0\int_0^{2\pi}\mathbf{e}(\theta_d,\phi)\exp\left(ik(x\sin\theta_d\cos\phi+y\sin\theta_d\sin\phi+z\cos\theta_d)\right)\sin\theta_d\,d\phi">,  
-  <img src="https://latex.codecogs.com/gif.latex?e_x(\theta_d,\phi)=p_{fx}(\sin^2\phi+\cos\theta_d\cos^2\phi)+p_{fy}\sin\phi\cos\phi(\cos\theta_d-1)">,  
-  <img src="https://latex.codecogs.com/gif.latex?e_y(\theta_d,\phi)=p_{fx}\sin\phi\cos\phi(\cos\theta_d-1)+p_{fy}(\cos\theta_d\sin^2\phi+\cos^2\phi)">,  
-  <img src="https://latex.codecogs.com/gif.latex?e_z(\theta_d,\phi)=-p_{fx}\sin\theta_d\cos\phi-p_{fy}\sin\theta_d\sin\phi">,  
-  <img src="https://latex.codecogs.com/gif.latex?E_0=\sqrt{2ZS}">.  
-  <img src="https://latex.codecogs.com/gif.latex?\mathbf{H}(x,y,z)=H_0\int_0^{2\pi}\mathbf{h}(\theta_d,\phi)\exp\left(ik(x\sin\theta_d\cos\phi+y\sin\theta_d\sin\phi+z\cos\theta_d)\right)\sin\theta_d\,d\phi">,  
-  <img src="https://latex.codecogs.com/gif.latex?h_x(\theta_d,\phi)=-p_{fy}(\sin^2\phi+\cos\theta_d\cos^2\phi)-p_{fx}\sin\phi\cos\phi(\cos\theta_d-1)">,  
-  <img src="https://latex.codecogs.com/gif.latex?h_y(\theta_d,\phi)=-p_{fy}\sin\phi\cos\phi(\cos\theta_d-1)+p_{fx}(\cos\theta_d\sin^2\phi+\cos^2\phi)">,  
-  <img src="https://latex.codecogs.com/gif.latex?h_z(\theta_d,\phi)=p_{fy}\sin\theta_d\cos\phi-p_{fx}\sin\theta_d\sin\phi">,  
-  <img src="https://latex.codecogs.com/gif.latex?H_0=\frac{E_0}{Z}">.    
-  <img src="https://latex.codecogs.com/gif.latex?\theta_d"> is a deflection angle, formed by wave number vector and z-axis. For axicon prism  
-  <img src="https://latex.codecogs.com/gif.latex?\theta_d=\sin^{-1}\left(\frac{n_p}{n_s}\sin\theta_p\right)-\theta_p">,  
-  <img src="https://latex.codecogs.com/gif.latex?\theta_p"> is a prism angle,
-  <img src="https://latex.codecogs.com/gif.latex?n_p"> is a refractive index of prism,
-  <img src="https://latex.codecogs.com/gif.latex?n_s"> is a refractive index of surroundings.
+  $$
+  \begin{eqnarray}
+  \mathbf{E}(x,y,z) &=& E_0 \int_0^{2\pi}
+   \mathbf{e}(\theta_d,\phi)\exp\left(ik(x\sin\theta_d\cos\phi+y\sin\theta_d\sin\phi+z\cos\theta_d)\right)\sin\theta_d \\, d\phi,\\
+  e_x(\theta_d,\phi) &=& p_{fx}(\sin^2\phi+\cos\theta_d\cos^2\phi)+p_{fy}\sin\phi\cos\phi(\cos\theta_d-1),\\
+  e_y(\theta_d,\phi) &=& p_{fx}\sin\phi\cos\phi(\cos\theta_d-1)+p_{fy}(\cos\theta_d\sin^2\phi+\cos^2\phi),\\
+  e_z(\theta_d,\phi) &=&-p_{fx}\sin\theta_d\cos\phi-p_{fy}\sin\theta_d\sin\phi,\\
+  E_0 &=& \sqrt{2ZS}.
+  \end{eqnarray}
+  $$
   
+  $$
+  \begin{eqnarray}
+  \mathbf{H}(x,y,z) &=& H_0 \int_0^{2\pi}
+   \mathbf{h}(\theta_d,\phi)\exp\left(ik(x\sin\theta_d\cos\phi+y\sin\theta_d\sin\phi+z\cos\theta_d)\right)\sin\theta_d \\, d\phi,\\
+  h_x(\theta_d,\phi) &=&-p_{fy}(\sin^2\phi+\cos\theta_d\cos^2\phi)-p_{fx}\sin\phi\cos\phi(\cos\theta_d-1),\\
+  h_y(\theta_d,\phi) &=&-p_{fy}\sin\phi\cos\phi(\cos\theta_d-1)+p_{fx}(\cos\theta_d\sin^2\phi+\cos^2\phi),\\
+  h_z(\theta_d,\phi) &=& p_{fy}\sin\theta_d\cos\phi-p_{fx}\sin\theta_d\sin\phi,\\
+  H_0 &=& \frac{E_0}{Z}.
+  \end{eqnarray}
+  $$
+  
+  $\theta_d$ is a deflection angle, formed by wave number vector and z-axis. 
+  For axicon prism
+  $$\theta_d=\sin^{-1}\left(\frac{n_p}{n_s}\sin\theta_p\right)-\theta_p$$
+  $\theta_p$ is a prism angle, $n_p$ is a refractive index of prism, $n_s$ is a refractive index of surroundings.  
+
+
+
 - Bessel beam with spiral phase modulation  
 
-  <img src="https://latex.codecogs.com/gif.latex?\mathbf{E}(x,y,z)=E_0\int_0^{2\pi}\mathbf{e}(\theta_d,\phi)\exp\left(ik(x\sin\theta_d\cos\phi+y\sin\theta_d\sin\phi+z\cos\theta_d)+im\phi\right)\sin\theta_d\,d\phi">,  
-  <img src="https://latex.codecogs.com/gif.latex?\mathbf{H}(x,y,z)=H_0\int_0^{2\pi}\mathbf{h}(\theta_d,\phi)\exp\left(ik(x\sin\theta_d\cos\phi+y\sin\theta_d\sin\phi+z\cos\theta_d)+im\phi\right)\sin\theta_d\,d\phi">.  
-  <img src="https://latex.codecogs.com/gif.latex?m"> is a mode number, must be integer ( m=0 is focused plane wave ). Others are the same as bessel beam.
+  $$
+  \begin{eqnarray}
+  \mathbf{E}(x,y,z) &=& E_0 \int_0^{2\pi}
+   \mathbf{e}(\theta_d,\phi)\exp\left(ik(x\sin\theta_d\cos\phi+y\sin\theta_d\sin\phi+z\cos\theta_d)+im\phi\right)\sin\theta_d \\, d\phi,\\
+  \mathbf{H}(x,y,z) &=& H_0 \int_0^{2\pi}
+   \mathbf{h}(\theta_d,\phi)\exp\left(ik(x\sin\theta_d\cos\phi+y\sin\theta_d\sin\phi+z\cos\theta_d)+im\phi\right)\sin\theta_d \\, d\phi.
+  \end{eqnarray}
+  $$
+  
+  $m$ is a mode number, must be integer ( $m=0$ is focused plane wave ). Others are the same as bessel beam.
+
 
 
 - Three-dimensional rotation matrix for rotation of optic axis
 
-  <img src="https://latex.codecogs.com/gif.latex?R=\begin{bmatrix}\cos\theta\cos\phi^2+\sin^2\phi&\sin\phi\cos\phi(\cos\theta-1)&\sin\theta\cos\phi\\\sin\phi\cos\phi(\cos\theta-1)&\cos\theta\sin^2\phi+\cos^2\phi&\sin\theta\sin\phi\\-\sin\theta\cos\phi&-\sin\theta\sin\phi&\cos\theta\end{bmatrix}">.  
-  <img src="https://latex.codecogs.com/gif.latex?\theta"> is a rotation angle. 
-  <img src="https://latex.codecogs.com/gif.latex?\phi"> is a angle on x-y plane, it shows rotation plane parallel to z-axis.  
-  <img src="https://latex.codecogs.com/gif.latex?\phi=0"> means rotation arround y-axis. This rotation matrix can not rotate arround z-axis.
+  $$
+  R=
+  \begin{bmatrix}
+  \cos\theta\cos\phi^2+\sin^2\phi & \sin\phi\cos\phi(\cos\theta-1) & \sin\theta\cos\phi \\
+  \sin\phi\cos\phi(\cos\theta-1) & \cos\theta\sin^2\phi+\cos^2\phi & \sin\theta\sin\phi \\
+  -\sin\theta\cos\phi & -\sin\theta\sin\phi & \cos\theta\end{bmatrix}.
+  $$
   
+  $\theta$ is a rotation angle. $\phi$ is a angle on x-y plane, it shows rotation plane parallel to z-axis. 
+  $\phi=0$ means rotation arround y-axis. This rotation matrix cannot rotate around z-axis.
   
+
+
 ## Formulae for numerical verification  
 
 - Focused plane wave  
 
-  <img src="https://latex.codecogs.com/gif.latex?E_x(0,0,0)=E_0e_{px}\frac{\pi}{6}\left(2\sin^2\theta_M\cos\theta_M+3\sin^2\theta_M-2\cos\theta_M+2\right)">,  
-  <img src="https://latex.codecogs.com/gif.latex?E_y(0,0,0)=E_0e_{py}\frac{\pi}{6}\left(2\sin^2\theta_M\cos\theta_M+3\sin^2\theta_M-2\cos\theta_M+2\right)">,  
-  <img src="https://latex.codecogs.com/gif.latex?E_z(0,0,0)=0">,  
-  <img src="https://latex.codecogs.com/gif.latex?\sin\theta_M=\frac{\mathrm{NA}}{n}">.
+  $$
+  \begin{eqnarray}
+  E_x(0,0,0) &=& E_0 e_{px}\frac{\pi}{6}\left(2\sin^2\theta_M\cos\theta_M+3\sin^2\theta_M-2\cos\theta_M+2\right),\\
+  E_y(0,0,0) &=& E_0 e_{py}\frac{\pi}{6}\left(2\sin^2\theta_M\cos\theta_M+3\sin^2\theta_M-2\cos\theta_M+2\right),\\
+  E_z(0,0,0) &=& 0,\\
+  \sin\theta_M &=& \frac{\mathrm{NA}}{n}.
+  \end{eqnarray}
+  $$
   
-  <img src="https://latex.codecogs.com/gif.latex?E_x(0,0,z)=E_0e_{px}\frac{\pi}{k^3z^3}\left[\exp(ikz\cos\theta_M)\left\{ik^2z^2\cos\theta_M(\cos\theta_M+1)-kz(2\cos\theta_M+1)-2i\right\}\right.">    
-  <img src="https://latex.codecogs.com/gif.latex?\left.+\exp(ikz)(-2ik^2z^2+2kz+2i)\right]">,  
-  <img src="https://latex.codecogs.com/gif.latex?E_y(0,0,z)=E_0e_{py}\frac{\pi}{k^3z^3}\left[\exp(ikz\cos\theta_M)\left\{ik^2z^2\cos\theta_M(\cos\theta_M+1)-kz(2\cos\theta_M+1)-2i\right\}\right.">    
-  <img src="https://latex.codecogs.com/gif.latex?\left.+\exp(ikz)(-2ik^2z^2+2kz+2i)\right]">,  
+  $$
+  \begin{eqnarray}
+  E_x(0,0,z) &=& E_0 e_{px}\frac{\pi}{k^3z^3} \left\[
+   \exp(ikz\cos\theta_M) \left\\{ ik^2z^2\cos\theta_M(\cos\theta_M+1)-kz(2\cos\theta_M+1)-2i \right\\} \right.\\
+   & & \left. +\exp(ikz)(-2ik^2z^2+2kz+2i) \right\],\\
+  E_y(0,0,z) &=& E_0 e_{py}\frac{\pi}{k^3z^3} \left\[
+   \exp(ikz\cos\theta_M) \left\\{ ik^2z^2\cos\theta_M(\cos\theta_M+1)-kz(2\cos\theta_M+1)-2i \right\\} \right.\\
+   & & \left. +\exp(ikz)(-2ik^2z^2+2kz+2i) \right\],\\
+  E_z(0,0,z) &=& 0.
+  \end{eqnarray}
+  $$
   
-  <img src="https://latex.codecogs.com/gif.latex?E_z(0,0,z)=0">.  
+  From Fraunhofer diffraction ( $\mathrm{NA}\simeq 0$ )  
   
-  From Fraunhofer diffraction 
-  (<img src="https://latex.codecogs.com/gif.latex?\mathrm{NA}\simeq0">)  
-  <img src="https://latex.codecogs.com/gif.latex?P_u=c\int\!\!\!\int_S\frac{1}{4}\left(\epsilon|\mathbf{E}(x,y,0)|^2+\mu|\mathbf{H}(x,y,0)|^2\right)\,dxdy">,  
-  <img src="https://latex.codecogs.com/gif.latex?P_s=\int\!\!\!\int_S\frac{1}{2}\Re\left(\mathbf{E}(x,y,0)\times\mathbf{H}^*(x,y,0)\right)\cdot\mathbf{n}_s\,dxdy">,  
-  <img src="https://latex.codecogs.com/gif.latex?S=\left\{(x,y):x^2+y^2\le\left(\frac{d}{2}\right)^2\right\}">,  
-  <img src="https://latex.codecogs.com/gif.latex?d\simeq1.220\frac{\lambda_0}{\mathrm{NA}}">,  
-  <img src="https://latex.codecogs.com/gif.latex?\frac{P_u}{P}\simeq\frac{P_s}{P}\simeq0.8378">.  
-  <img src="https://latex.codecogs.com/gif.latex?\epsilon"> is a permittivity,
-  <img src="https://latex.codecogs.com/gif.latex?\mu"> is a permeability,
-  <img src="https://latex.codecogs.com/gif.latex?c"> is a speed of light, 
-  <img src="https://latex.codecogs.com/gif.latex?\mathbf{n}_s=(0,0,1)">, 
-  <img src="https://latex.codecogs.com/gif.latex?d"> is a diameter of beam spot ( diameter of airy disk ), 
-  <img src="https://latex.codecogs.com/gif.latex?\lambda_0"> is a wavelength in vacuum.  
+  $$
+  \begin{eqnarray}
+  P_u &=& c \int \\!\\!\\! \int_S \frac{1}{4} \left( \epsilon |\mathbf{E}(x,y,0)|^2 + \mu |\mathbf{H}(x,y,0)|^2 \right) \\, dxdy,\\
+  P_s &=& \int \\!\\!\\! \int_S \frac{1}{2} \Re \left( \mathbf{E}(x,y,0)\times \mathbf{H}^{\*}(x,y,0) \right) \cdot\mathbf{n}\_s \\, dxdy,\\
+  S &=& \left\\{ (x,y) : x^2+y^2 \le \left( \frac{d}{2} \right)^2 \right\\},\\
+  d &\simeq& 1.220 \frac{\lambda_0}{\mathrm{NA}},\\
+  \frac{P_u}{P} &\simeq& \frac{P_s}{P} \simeq 0.8378.
+  \end{eqnarray}
+  $$
   
+  $\epsilon$ is a permittivity, $\mu$ is a permeability, $c$ is a speed of light, $\mathbf{n}\_s=(0,0,1)$, 
+  $d$ is a diameter of beam spot ( diameter of airy disk ), $\lambda_0$ is a wavelength in vacuum.  
+
 
 
 - Focused plane wave with spiral phase modulation  
 
-  <img src="https://latex.codecogs.com/gif.latex?E_x(0,0,0)=\begin{cases}E_0\left(2e_{px}+ime_{py}\right)\frac{\pi}{24}\left(2\sin^2\theta_M\cos\theta_M-3\sin^2\theta_M-2\cos\theta_M+2\right),&|m|=2\\0,&|m|\neq2,m\neq0\end{cases}">,  
-  <img src="https://latex.codecogs.com/gif.latex?E_y(0,0,0)=\begin{cases}E_0\left(ime_{px}-2e_{py}\right)\frac{\pi}{24}\left(2\sin^2\theta_M\cos\theta_M-3\sin^2\theta_M-2\cos\theta_M+2\right),&|m|=2\\0,&|m|\neq2,m\neq0\end{cases}">,  
-  <img src="https://latex.codecogs.com/gif.latex?E_z(0,0,0)=\begin{cases}-E_0(e_{px}+ime_{py})\frac{\pi}{3}\sin^3\theta_M,&|m|=1\\0,&|m|\neq1\end{cases}">.  
+  $$
+  \begin{eqnarray}
+  E_x(0,0,0) &=& 
+   \begin{cases}
+      E_0 \left( 2e_{px}+ime_{py} \right)\frac{\pi}{24}\left(2\sin^2\theta_M\cos\theta_M-3\sin^2\theta_M-2\cos\theta_M+2\right),&|m|=2\\
+      0, &|m|\neq2,m\neq0
+   \end{cases},\\
+  E_y(0,0,0) &=& 
+   \begin{cases}
+      E_0 \left( ime_{px}-2e_{py}\right)\frac{\pi}{24}\left(2\sin^2\theta_M\cos\theta_M-3\sin^2\theta_M-2\cos\theta_M+2\right),&|m|=2\\
+      0,&|m|\neq2,m\neq0
+   \end{cases},\\
+  E_z(0,0,0) &=& 
+   \begin{cases}
+      -E_0(e_{px}+ime_{py})\frac{\pi}{3}\sin^3\theta_M,&|m|=1\\
+      0,&|m|\neq1
+   \end{cases}.
+  \end{eqnarray}
+  $$
+  
   
   
 - Focused radial-azimuthal polarization beam  
 
-  <img src="https://latex.codecogs.com/gif.latex?E_x(0,0,0)=0">,  
-  <img src="https://latex.codecogs.com/gif.latex?E_y(0,0,0)=0">,  
-  <img src="https://latex.codecogs.com/gif.latex?E_z(0,0,0)=-E_0e_{vr}\frac{2\pi}{3}\sin^3\theta_M">.  
+  $$
+  \begin{eqnarray}
+  E_x(0,0,0) &=& 0,\\
+  E_y(0,0,0) &=& 0,\\
+  E_z(0,0,0) &=&-E_0 e_{vr} \frac{2\pi}{3}\sin^3 \theta_M.
+  \end{eqnarray}
+  $$
+
 
 
 - Bessel beam  
 
-  <img src="https://latex.codecogs.com/gif.latex?E_x(0,0,z)=E_0p_{fx}\pi\sin\theta_d(\cos\theta_d+1)\exp(ikz\cos\theta_d)">,  
-  <img src="https://latex.codecogs.com/gif.latex?E_y(0,0,z)=E_0p_{fy}\pi\sin\theta_d(\cos\theta_d+1)\exp(ikz\cos\theta_d)">,  
-  <img src="https://latex.codecogs.com/gif.latex?E_z(0,0,z)=0">.  
-  
+  $$
+  \begin{eqnarray}
+  E_x(0,0,z) &=& E_0 p_{fx}\pi\sin\theta_d(\cos\theta_d+1)\exp(ikz\cos\theta_d),\\
+  E_y(0,0,z) &=& E_0 p_{fy}\pi\sin\theta_d(\cos\theta_d+1)\exp(ikz\cos\theta_d),\\
+  E_z(0,0,z) &=& 0.
+  \end{eqnarray}
+  $$
+
+
   
 - Bessel beam with spiral phase modulation   
 
-  <img src="https://latex.codecogs.com/gif.latex?E_x(0,0,z)=\begin{cases}E_0(2p_{fx}+imp_{fy})\frac{\pi}{4}\sin\theta_d(\cos\theta_d-1)\exp(ikz\cos\theta_d),&|m|=2\\0,&|m|\neq2,m\neq0\end{cases}">,  
-  <img src="https://latex.codecogs.com/gif.latex?E_y(0,0,z)=\begin{cases}E_0(imp_{fx}-2p_{fy})\frac{\pi}{4}\sin\theta_d(\cos\theta_d-1)\exp(ikz\cos\theta_d),&|m|=2\\0,&|m|\neq2,m\neq0\end{cases}">,  
-  <img src="https://latex.codecogs.com/gif.latex?E_z(0,0,z)=\begin{cases}-E_0(p_{fx}+imp_{fy})\pi\sin^2\theta_d\exp(ikz\cos\theta_d),&|m|=1\\0,&|m|\neq1,m\neq0\end{cases}">.  
+  $$
+  \begin{eqnarray}
+  E_x(0,0,z) &=& 
+   \begin{cases}
+      E_0(2p_{fx}+imp_{fy})\frac{\pi}{4}\sin\theta_d(\cos\theta_d-1)\exp(ikz\cos\theta_d),&|m|=2\\
+      0,&|m|\neq2,m\neq0
+   \end{cases},\\
+  E_y(0,0,z) &=& 
+   \begin{cases}
+      E_0(imp_{fx}-2p_{fy})\frac{\pi}{4}\sin\theta_d(\cos\theta_d-1)\exp(ikz\cos\theta_d),&|m|=2\\
+      0,&|m|\neq2,m\neq 0
+   \end{cases},\\
+  E_z(0,0,z) &=& 
+   \begin{cases}
+      -E_0(p_{fx}+imp_{fy})\pi\sin^2\theta_d\exp(ikz\cos\theta_d),&|m|=1\\
+      0,&|m|\neq1,m\neq 0
+   \end{cases}.
+  \end{eqnarray}
+  $$
   
   
 
@@ -300,4 +386,8 @@ The z-axis is selected as optic axis.
 1. The command-line driven graphing utility [gnuplot](http://www.gnuplot.info/)  
 2. The utilities for manipulating images [ImageMagick](https://imagemagick.org/)  
 3. The official PNG reference library [libpng](http://www.libpng.org/pub/png/libpng.html)  
-  
+4. Davis, L. W. "Theory of electromagnetic beams." Physical Review A 19.3 (1979): 1177.
+5. Barton, J. P., D. R. Alexander, and S. A. Schaub. "Internal and near‐surface electromagnetic fields for a spherical particle irradiated by a focused laser beam." Journal of Applied Physics 64.4 (1988): 1632-1639.
+
+
+2022/07/31  Added first-order focused Gaussian beam.
