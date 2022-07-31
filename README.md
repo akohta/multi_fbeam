@@ -252,6 +252,31 @@ The z-axis is selected as optic axis.
 
 
 
+- first-order focused Gaussian beam  
+  
+  $$
+  \begin{eqnarray}
+  E_x(x,y,z) &=& E_0 e_{0x} \psi^{\*} \exp(ikz),\\
+  E_y(x,y,z) &=& E_0 e_{0y} \psi^{\*} \exp(ikz),\\
+  E_z(x,y,z) &=& -2 E_0 Q^{\*} \psi^{\*} \left( e_{0x} \frac{x}{l} - e_{0y} \frac{y}{l} \right) \exp (ikz),\\
+  H_x(x,y,z) &=&-H_0 e_{0y} \psi^{\*} \exp(ikz),\\
+  H_y(x,y,z) &=& H_0 e_{0x} \psi^{\*} \exp(ikz),\\
+  H_z(x,y,z) &=& -2 H_0 Q^{\*} \psi^{\*} \left( e_{0y} \frac{x}{l} + e_{0x} \frac{y}{l} \right) \exp (ikz),\\
+  l &=& k \omega_0^2,\\
+  Q &=& \frac{1}{i+2\frac{z}{l}},\\
+  \psi &=& i Q \exp \left( -i Q \rho^2 \right),\\
+  \rho &=& \frac{\sqrt{x^2+y^2}}{\omega_0},\\
+  E_0 &=& 2 \sqrt{\frac{P}{\pi \omega_0^2 n}},\\
+  H_0 &=& \frac{E_0}{Z}.
+  \end{eqnarray}
+  $$
+
+  $P$ is a total beam power, $k$ is a wave number, $\omega_0$ is a beam waist radius, 
+  $n$ is a refractive index of surroundings, $Z$ is a wave impedance. 
+  $\mathbf{e}\_0$ is a polarization coefficient include initial phase, same as $\mathbf{e}\_0$ in plane wave.
+  $z^{\*}$ means complex conjugate ($z^{\*}=(a+bi)^{\*}=a-bi$).
+
+
 - Three-dimensional rotation matrix for rotation of optic axis
 
   $$
@@ -380,6 +405,21 @@ The z-axis is selected as optic axis.
   $$
   
   
+- focused Gaussian beam 
+   
+  $$
+  \begin{eqnarray}
+  P_{\mathrm{spot}} 
+   &=& \int \\!\\!\\! \int_S \frac{1}{2} \Re \left( \mathbf{E}(x,y,0)\times \mathbf{H}^{\*}(x,y,0) \right) \cdot\mathbf{n}\_s \\, dxdy,\\
+  S &=& \left\\{ (x,y,0) : x^2+y^2 \le r^2 \right\\},\\
+  \frac{P_{\mathrm{spot}}}{P_{\mathrm{total}}} &=& 1 -\exp \left( -2 \frac{r^2}{\omega_0^2} \right).
+  \end{eqnarray}
+  $$
+  
+  $P_{\mathrm{spot}}$ is a fraction of power transmitted through a spot, $r$ is a beam spot radius, 
+  $\mathbf{n}\_s=(0,0,1)$.  
+  
+
 
 ## References  
 
@@ -387,7 +427,7 @@ The z-axis is selected as optic axis.
 2. The utilities for manipulating images [ImageMagick](https://imagemagick.org/)  
 3. The official PNG reference library [libpng](http://www.libpng.org/pub/png/libpng.html)  
 4. Davis, L. W. "Theory of electromagnetic beams." Physical Review A 19.3 (1979): 1177.
-5. Barton, J. P., D. R. Alexander, and S. A. Schaub. "Internal and near‐surface electromagnetic fields for a spherical particle irradiated by a focused laser beam." Journal of Applied Physics 64.4 (1988): 1632-1639.
+
 
 
 2022/07/31  Added first-order focused Gaussian beam.
