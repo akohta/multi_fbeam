@@ -298,7 +298,7 @@ The z-axis is selected as optic axis.
   \begin{eqnarray}
   P_u &=& c \int \\!\\!\\! \int_S \frac{1}{4} \left( \epsilon |\mathbf{E}(x,y,0)|^2 + \mu |\mathbf{H}(x,y,0)|^2 \right) \\, dxdy,\\
   P_s &=& \int \\!\\!\\! \int_S \frac{1}{2} \Re \left( \mathbf{E}(x,y,0)\times \mathbf{H}^{\*}(x,y,0) \right) \cdot\mathbf{n}\_s \\, dxdy,\\
-  S &=& \left\\{ (x,y) : x^2+y^2 \le \left( \frac{d}{2} \right)^2 \right\\},\\
+  S &=& \left\\{ (x,y,0) : x^2+y^2 \le \left( \frac{d}{2} \right)^2 \right\\},\\
   d &\simeq& 1.220 \frac{\lambda_0}{\mathrm{NA}},\\
   \frac{P_u}{P} &\simeq& \frac{P_s}{P} \simeq 0.8378.
   \end{eqnarray}
