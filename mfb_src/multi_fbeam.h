@@ -7,6 +7,7 @@
 #include "bsb.h"  
 #include "bslgb.h" 
 #include "rab.h"
+#include "fgb.h"
 
 // default datafile name. 
 #define fn_ipw "ipw.txt" // plane wave
@@ -15,6 +16,7 @@
 #define fn_bsb "bsb.txt" // bessel beam
 #define fn_blg "blg.txt" // bessel beam with spiral phase modulation
 #define fn_rab "rab.txt" // focused radial-azimuthal polarized beam
+#define fn_fgb "fgb.txt" // first-order focused gaussian beam
 
 typedef struct beam_data{
   Ipw *ipw;
@@ -23,6 +25,7 @@ typedef struct beam_data{
   Bsb *bsb;
   BsLGb *blg;
   RAb *rab;
+  Fgb *fgb;
 }Bdata;
 
 typedef struct beam_object{
@@ -32,6 +35,7 @@ typedef struct beam_object{
   int n_bsb;  char fname_bsb[28];
   int n_blg;  char fname_blg[28];
   int n_rab;  char fname_rab[28];
+  int n_fgb;  char fname_fgb[28];
 
   double n_0;      // refractive index of surroundings 
   double lambda_0; // wavelength in vacuum
@@ -63,5 +67,6 @@ int read_data_mfb_lgb(char *fname,Bobj *obj); // for focused plane wave with spi
 int read_data_mfb_bsb(char *fname,Bobj *obj); // for bessel beam
 int read_data_mfb_blg(char *fname,Bobj *obj); // for bessel beam with spiral phase modulation
 int read_data_mfb_rab(char *fname,Bobj *obj); // for focused radial-azimuthal polarization beam
+int read_data_mfb_fgb(char *fname,Bobj *obj); // for focused gaussian beam
 
 #endif

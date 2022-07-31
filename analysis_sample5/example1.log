@@ -1,0 +1,58 @@
+ ../example1.out 
+
+ "fgb.txt" No.00 -- first-order focused Gaussian beam --
+wave length in vacuum                       :           1.064
+refractive index of surroundings            :            1.33
+beam waist radius                           :             0.8
+incident beam power                         :               1
+x-component of polarization coefficient     :      1+      0i
+y-component of polarization coefficient     :      0+      0i
+x-component of translation vector           :               0
+y-component of translation vector           :               0
+z-component of translation vector           :               0
+rotation parameter theta               [rad]:               0
+rotation parameter phi                 [rad]:               0
+
+ "fgb.txt" No.00 -- first-order focused Gaussian beam, MKSA system --
+wave length in vacuum                    [m]:       1.064e-06
+refractive index of surroundings            :            1.33
+beam waist radius                        [m]:           8e-07
+incident beam power                      [W]:           0.001
+x-component of polarization coefficient     :      1+      0i
+y-component of polarization coefficient     :      0+      0i
+x-component of translation vector        [m]:               0
+y-component of translation vector        [m]:               0
+z-component of translation vector        [m]:               0
+rotation parameter theta               [rad]:               0
+rotation parameter phi                 [rad]:               0
+
+Electromagnetic field at r=( 2.5,-3, 10)
+Ex= 2.84547258815139e-02 +6.65400299865519e-02 I (= 1.74650442237720e+04 +4.08411794654201e+04 I (MKSA))
+Ey= 0.00000000000000e+00 +0.00000000000000e+00 I (= 0.00000000000000e+00 +0.00000000000000e+00 I (MKSA))
+Ez=-2.75859983293771e-03 -1.73283192541861e-02 I (=-1.69318334952745e+03 -1.06358382561195e+04 I (MKSA))
+Hx= 0.00000000000000e+00 +0.00000000000000e+00 I (= 0.00000000000000e+00 +0.00000000000000e+00 I (MKSA))
+Hy= 3.78447854224135e-02 +8.84982398821141e-02 I (= 6.16581888623993e+01 +1.44184756968119e+02 I (MKSA))
+Hz= 4.40272533336859e-03 +2.76559975296810e-02 I (= 7.17309048219194e+00 +4.50582213594269e+01 I (MKSA))
+Real electromagnetic field at r=( 2.5,-3, 10), t=0.1 
+Ex= 6.06851738185381e-02 (= 3.72475647413149e+04 (MKSA))
+Ey= 0.00000000000000e+00 (= 0.00000000000000e+00 (MKSA))
+Ez=-1.19397853767749e-02 (=-7.32844450851636e+03 (MKSA))
+Hx= 0.00000000000000e+00 (= 0.00000000000000e+00 (MKSA))
+Hy= 8.07112811786557e-02 (= 1.31497942522154e+02 (MKSA))
+Hz= 1.90558974613327e-02 (= 3.10466055362413e+01 (MKSA))
+
+Directional derivative of electromagnetic field at r=( 2.5,-3, 10)
+v=( 0.107084, 0.275436, 0.955336),|v|=1
+dEx/dv=-4.31115941525849e-01 +2.05475015787042e-01 I (=-2.64611896655581e+11 +1.26117195876146e+11 I (MKSA))
+dEy/dv= 0.00000000000000e+00 +0.00000000000000e+00 I (= 0.00000000000000e+00 +0.00000000000000e+00 I (MKSA))
+dEz/dv= 1.13257270640967e-01 -2.19611971391920e-02 I (= 6.95154558383314e+10 -1.34794227447520e+10 I (MKSA))
+dHx/dv= 0.00000000000000e+00 +0.00000000000000e+00 I (= 0.00000000000000e+00 +0.00000000000000e+00 I (MKSA))
+dHy/dv=-5.73384202229379e-01 +2.73281770996766e-01 I (=-9.34179730104560e+08 +4.45241236294344e+08 I (MKSA))
+dHz/dv=-1.81351412167435e-01 +3.13263082938669e-02 I (=-2.95464738327203e+08 +5.10380336837913e+07 I (MKSA))
+Directional derivative using central difference. h=1.064e-07
+dEx/dv=-4.31115942616838e-01 +2.05475016439706e-01 I
+dEy/dv= 0.00000000000000e+00 +0.00000000000000e+00 I
+dEz/dv= 1.13257270935208e-01 -2.19611972195692e-02 I
+dHx/dv= 0.00000000000000e+00 +0.00000000000000e+00 I
+dHy/dv=-5.73384203656103e-01 +2.73281771846548e-01 I
+dHz/dv=-1.81351412628596e-01 +3.13263084247641e-02 I
