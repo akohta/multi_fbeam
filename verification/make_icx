@@ -1,6 +1,6 @@
-CC      =gcc
-CFLAGS  =-O3 -Wall
-LDFLAGS =-lm
+CC      =icx
+CFLAGS  =-fast -Wall
+LDFLAGS =
 SRCDIR1 =../mfb_src
 SRCDIR2 =../com_src
 OBJDIR =../obj

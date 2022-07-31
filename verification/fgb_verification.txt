@@ -1,0 +1,5 @@
+## first-order focused Gaussian beam
+# number of beams
+1
+#lambda0 ni omega0 power real(e0x) imag(e0x) real(e0y) imag(e0y) fx fy fz theta phi
+1.064 1.33 0.8 1.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0

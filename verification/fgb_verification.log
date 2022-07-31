@@ -1,0 +1,26 @@
+./fgb_verification.out 
+
+----- verification of focused Gaussian beam ------
+ "fgb_verification.txt" No.00 -- first-order focused Gaussian beam --
+wave length in vacuum                       :           1.064
+refractive index of surroundings            :            1.33
+beam waist radius                           :             0.8
+incident beam power                         :               1
+x-component of polarization coefficient     :      1+      0i
+y-component of polarization coefficient     :      0+      0i
+x-component of translation vector           :               0
+y-component of translation vector           :               0
+z-component of translation vector           :               0
+rotation parameter theta               [rad]:               0
+rotation parameter phi                 [rad]:               0
+
+P_spot  : the fraction of power transmitted through the spot
+P_total : the total power (incident beam power)
+
+r = omega0 (spot radius = beam waist radius)
+P_spot/P_total = 0.86466471676339 (Analytical solution)
+P_spot/P_total = 0.86466471676339 (Numerical result)
+
+r = 1.52 * omega0
+P_spot/P_total = 0.99015508302361 (Analytical solution)
+P_spot/P_total = 0.99015508302361 (Numerical result)
