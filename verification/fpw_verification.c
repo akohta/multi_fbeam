@@ -1,5 +1,9 @@
 // verification of focused plane wave.
+#include <stdio.h>
+#include <math.h>
 #include "multi_fbeam.h"
+#include "fpw.h"
+#include "gauleg.h"
 
 void verification_1(); // using analytical solutions
 void verification_2(); // using Fraunhofer diffraction theory

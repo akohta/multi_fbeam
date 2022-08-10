@@ -1,4 +1,18 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
 #include "multi_fbeam.h"
+#include "osu_mksa.h"
+#include "my_utils.h"
+#include "ipw.h"
+#include "fpw.h"
+#include "lgb.h"
+#include "bsb.h"  
+#include "bslgb.h" 
+#include "rab.h"
+#include "fgb.h"
+
 
 void init_mfb(Bobj *obj)
 {
@@ -1009,6 +1023,36 @@ void calc_mfb_EH_dv(double complex *e,double complex *h,double complex *dedv,dou
     }
   }
 
+}
+
+void calc_mfb_EH_mksa(double complex *em,double complex *hm,double *xm,Bobj *obj)
+{
+  double complex e[3],h[3];
+  double x[3];
+  int i;
+  
+  for(i=0;i<3;i++) x[i]=MKSAtoOSU_length(xm[i]);
+  calc_mfb_EH(e,h,x,obj);
+  for(i=0;i<3;i++){
+    em[i]=OSUtoMKSA_ElectricField(e[i]);
+    hm[i]=OSUtoMKSA_MagneticField(h[i]);
+  }
+}
+
+void calc_mfb_EH_dv_mksa(double complex *em,double complex *hm,double complex *demdv,double complex *dhmdv,double *xm,double *v,Bobj *obj)
+{
+  double complex e[3],h[3],dev[3],dhv[3];
+  double x[3];
+  int i;
+  
+  for(i=0;i<3;i++) x[i]=MKSAtoOSU_length(xm[i]);
+  calc_mfb_EH_dv(e,h,dev,dhv,x,v,obj);
+  for(i=0;i<3;i++){
+    em[i]=OSUtoMKSA_ElectricField(e[i]);
+    hm[i]=OSUtoMKSA_MagneticField(h[i]);
+    demdv[i]=OSUtoMKSA_dEdv(dev[i]);
+    dhmdv[i]=OSUtoMKSA_dHdv(dhv[i]);
+  }
 }
 
 ////////////////////////////////////////////////////////////

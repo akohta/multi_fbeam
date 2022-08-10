@@ -1,0 +1,60 @@
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.. ./a.out 
+
+ "fpw.txt" No.00 -- focused plane wave --
+wave length of incident beam in vacuum      :           1.064
+refractive index of surrounding             :            1.33
+numerical aperture                          :             1.2
+incident beam power                         :               1
+x-component of polarization coefficient     :      1+      0i
+y-component of polarization coefficient     :      0+      0i
+x-component of translation vector           :               0
+y-component of translation vector           :               0
+z-component of translation vector           :               0
+rotation parameter theta               [rad]:               0
+rotation parameter phi                 [rad]:               0
+gauss-legendre integration sampling number  :              64
+
+ "fpw.txt" No.00 -- focused plane wave, MKSA system --
+wave length of incident beam in vacuum   [m]:       1.064e-06
+refractive index of surrounding             :            1.33
+numerical aperture                          :             1.2
+incident beam power                      [W]:           0.001
+x-component of polarization coefficient     :      1+      0i
+y-component of polarization coefficient     :      0+      0i
+x-component of translation vector        [m]:               0
+y-component of translation vector        [m]:               0
+z-component of translation vector        [m]:               0
+rotation parameter theta               [rad]:               0
+rotation parameter phi                 [rad]:               0
+gauss-legendre integration sampling number  :              64
+
+Electromagnetic field at r=( 2.5,-3, 10)
+Ex= 3.14872104089278e-02 +5.72497687114582e-02 I
+Ey= 1.42056652291361e-03 +2.14616131351441e-03 I
+Ez=-9.42633211132370e-03 -1.20959520701506e-02 I
+Hx= 1.88935347547510e-03 +2.85439454697416e-03 I
+Hy= 4.11852269028664e-02 +7.50955810523489e-02 I
+Hz= 1.50444260496725e-02 +1.93051395039604e-02 I
+Real electromagnetic field at r=( 2.5,-3, 10), t=0.1 
+Ex= 5.80313117062744e-02
+Ey= 2.37496794022049e-03
+Ez=-1.45649602051743e-02
+Hx= 3.15870736049325e-03
+Hy= 7.60234518704975e-02
+Hz= 2.32456764874581e-02
+
+Directional derivative of electromagnetic field at r=( 2.5,-3, 10)
+v=( 0.107084, 0.275436, 0.955336),|v|=1
+dEx/dv=-3.80290932810196e-01 +1.97072058915667e-01 I
+dEy/dv=-1.48442678515744e-02 +6.17598584778829e-03 I
+dEz/dv= 8.58302900522749e-02 -5.18576179211339e-02 I
+dHx/dv=-1.97428762425939e-02 +8.21406117755843e-03 I
+dHy/dv=-4.98030619429579e-01 +2.59875491145347e-01 I
+dHz/dv=-1.39010810849342e-01 +8.01654033467634e-02 I
+Directional derivative using central difference. h=1.064e-07
+dEx/dv=-3.80290934336002e-01 +1.97072060105350e-01 I
+dEy/dv=-1.48442680909935e-02 +6.17598590492438e-03 I
+dEz/dv= 8.58302906103723e-02 -5.18576179022099e-02 I
+dHx/dv=-1.97428765581274e-02 +8.21406126587916e-03 I
+dHy/dv=-4.98030621416209e-01 +2.59875491987855e-01 I
+dHz/dv=-1.39010810518450e-01 +8.01654036888341e-02 I

@@ -1,0 +1,36 @@
+CC      =gcc
+CFLAGS  =-O3 -Wall -fPIC
+LDFLAGS =-shared -Wl,--version-script,libmfbm.map -lm
+SRCDIR1 =../mfb_src
+SRCDIR2 =../com_src
+OBJDIR  =./obj
+TARGET  =libmfbm.so
+
+SRCS1=$(wildcard $(SRCDIR1)/*.c)
+OBJS1=$(addprefix $(OBJDIR)/,$(patsubst %.c,%.o,$(notdir $(SRCS1)) ))
+HEAD1=$(wildcard $(SRCDIR1)/*.h)
+SRCS2=$(wildcard $(SRCDIR2)/*.c)
+OBJS2=$(addprefix $(OBJDIR)/,$(patsubst %.c,%.o,$(notdir $(SRCS2)) ))
+HEAD2=$(wildcard $(SRCDIR2)/*.h)
+
+TRGOBJ=$(OBJS1) $(OBJS2)
+
+all : directories $(TARGET)
+
+directories:
+	@mkdir -p $(OBJDIR)
+
+$(TARGET) : $(TRGOBJ)  
+	$(CC) $^ -o $@ $(LDFLAGS) 
+
+$(OBJDIR)/%.o : $(SRCDIR1)/%.c
+	$(CC) $(CFLAGS) -I $(SRCDIR2) -c $< -o $@
+
+$(OBJDIR)/%.o : $(SRCDIR2)/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+	@rm -rf $(TARGET) $(OBJDIR)
+
+$(OBJS1) : $(HEAD1)
+$(OBJS1) $(OBJS2) : $(HEAD2)

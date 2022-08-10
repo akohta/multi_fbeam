@@ -1,15 +1,9 @@
 #if !defined FGB_H
 #define FGB_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <math.h>
 #include <complex.h>
-#include "mfb_const.h"
-#include "osu_mksa.h"
 
-typedef struct focused_gaussian_beam_data{
+typedef struct focused_gaussian_beam_data_t{
   double E0;           // power coefficient
   double ki;           // wave number 
   double complex ex,ey;// field coefficients
@@ -20,7 +14,7 @@ typedef struct focused_gaussian_beam_data{
   double i_w0;         // i_w0=1.0/omega0;
 }FgbD;
 
-typedef struct focused_gaussian_beam{
+typedef struct focused_gaussian_beam_t{
   double lambda0;       // wavelength in vacuum 
   double ni;            // refractive index of surroundings
   double omega0;        // beam waist radius

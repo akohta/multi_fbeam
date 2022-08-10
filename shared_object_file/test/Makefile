@@ -1,0 +1,13 @@
+CC      =gcc
+CFLAGS  =-O3 -Wall
+LDFLAGS =-lmfbm -lm
+# directory of multi_fbeam.h 
+IDIR=../../mfb_src
+# directory of libmfbm.so
+LDIR=..
+
+a.out:
+	$(CC) $(CFLAGS) -I$(IDIR) -L$(LDIR) main.c -o a.out $(LDFLAGS)
+
+clean:
+	@rm -rf *.o a.out

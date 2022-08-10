@@ -1,4 +1,10 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
 #include "fgb.h"
+#include "mfb_const.h"
+#include "osu_mksa.h"
 
 void print_data_fgb(Fgb *fgb)
 {
