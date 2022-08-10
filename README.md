@@ -59,7 +59,7 @@ This is the analysis result of focused beam with spiral phase modulation.
 
 ## Usage of shared object file  
 
-1. type 'make' command to create shared object file ( shared library ) in the shared_object_file directory.
+1. type 'make' command to create shared object file ( shared library ) in the shared_object_file directory.   
    The shared object file "libmfbm.so" is created. By linking to this shared library, the functions defined in "multi_fbeam.h" are available. 
 2. type 'make' command to create the executable of sample code in the test directory.  
    This code and makefile show a simple usage of the shared library. The result is shown in a.out.log. 
@@ -439,5 +439,5 @@ The z-axis is selected as optic axis.
 
 
 
-2022/07/31 Added first-order focused Gaussian beam.
+2022/07/31 Added first-order focused Gaussian beam.  
 2022/08/11 Added a makefile to create a shared object file and an example of using it.
