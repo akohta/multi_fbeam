@@ -1,5 +1,8 @@
 // calculation example for electromagnetic field intensity distribution 
+#include <stdio.h>
+#include <stdlib.h>
 #include "multi_fbeam.h"
+#include "my_utils.h"
 
 int main()
 {

@@ -1,5 +1,9 @@
 // verification of focused Gaussian beam.
+#include <stdio.h>
+#include <math.h>
 #include "multi_fbeam.h"
+#include "fgb.h"
+#include "gauleg.h"
 
 void verification();
 

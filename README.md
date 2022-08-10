@@ -57,6 +57,15 @@ This is the analysis result of focused beam with spiral phase modulation.
 ![xz_Ex 1](analysis_sample1/xz_Ex.gif "instantaneous value of the E_x on y=0 plane (analysis_sample1/xz_Ex.gif)")![xy_Ex](analysis_sample1/xy_Ex.gif "instantaneous value of the E_x on z=0 plane (anaysis_sample1/xy_Ex.gif)")  
 
 
+## Usage of shared object file  
+
+1. type 'make' command to create shared object file ( shared library ) in the shared_object_file directory.   
+   The shared object file "libmfbm.so" is created. By linking to this shared library, the functions defined in "multi_fbeam.h" are available. 
+2. type 'make' command to create the executable of sample code in the test directory.  
+   This code and makefile show a simple usage of the shared library. The result is shown in a.out.log. 
+   It can be run by typing 'LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.. ./a.out'.
+
+
 ## Verification  
 
 The verification program is in the folder verification. 
@@ -274,7 +283,7 @@ The z-axis is selected as optic axis.
   $P$ is a total beam power, $k$ is a wave number, $\omega_0$ is a beam waist radius, 
   $n$ is a refractive index of surroundings, $Z$ is a wave impedance. 
   $\mathbf{e}\_0$ is a polarization coefficient include initial phase, same as $\mathbf{e}\_0$ in plane wave.
-  $z^{\*}$ means complex conjugate ($z^{\*}=(a+bi)^{\*}=a-bi$).
+  $z^{\*}$ means complex conjugate ( $z^{\*}=(a+bi)^{\*}=a-bi$ ).
 
 
 - Three-dimensional rotation matrix for rotation of optic axis
@@ -430,4 +439,5 @@ The z-axis is selected as optic axis.
 
 
 
-2022/07/31  Added first-order focused Gaussian beam.
+2022/07/31 Added first-order focused Gaussian beam.  
+2022/08/11 Added a makefile to create a shared object file and an example of using it.

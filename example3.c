@@ -1,7 +1,11 @@
-#include "multi_fbeam.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 #include <sys/stat.h>
 #include <errno.h>  
 #include <png.h>
+#include "multi_fbeam.h"
+#include "my_utils.h"
 
 typedef struct image_data{
   char dir_name[64];      // directory name to output image

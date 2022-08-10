@@ -1,0 +1,15 @@
+{
+  global:
+    /* multi_fbeam.h */
+    *_mfb;
+    print_data_mfb*;
+    calc_mfb_*;
+    read_data_mfb_*;
+    
+    /* If you need functions defined in other header files, add them below. */
+    /* Don't forget to include the header files.*/
+    
+    
+  local:
+    *;
+};

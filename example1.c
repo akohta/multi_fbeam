@@ -1,5 +1,8 @@
 // calculation example for electromagnetic field
+#include <stdio.h>
+#include <math.h>
 #include "multi_fbeam.h"
+#include "osu_mksa.h"
 
 // verification function for directional derivative using central difference
 void veri_dderv(Bobj *bm,double *r,double *v);
